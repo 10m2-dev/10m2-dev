@@ -81,24 +81,24 @@
 <table width="100%">
   <tr>
     <th>Date</th>
-    <th align="left">Project<br><img src="./output/spacer.svg" width="150" height="1" alt=""></th>
-    <th align="left">Description<br><img src="./output/spacer.svg" width="560" height="1" alt=""></th>
+    <th align="left">Project<img src="./output/spacer.svg" width="95" height="1" alt=""></th>
+    <th align="left">Description<img src="./output/spacer.svg" width="470" height="1" alt=""></th>
     <th>Links</th>
   </tr>
   <tr valign="middle">
-    <td align="center"><sub>2026</sub></td>
+    <td align="center">2026</td>
     <td><b>🧑‍💻&nbsp;Vibe101</b></td>
     <td>Learn-by-building "vibe coding" platform (KO/EN)</td>
     <td align="center"><a href="https://vibe101.dev">🔗</a></td>
   </tr>
   <tr valign="middle">
-    <td align="center"><sub>2026</sub></td>
+    <td align="center">2026</td>
     <td><b>🏠&nbsp;Ondol</b></td>
     <td>Rent/Jeonse verification &amp; scam-risk check for foreigners in Korea</td>
     <td align="center"><a href="https://ondolkorea.com">🔗</a></td>
   </tr>
   <tr valign="middle">
-    <td align="center"><sub>2025</sub></td>
+    <td align="center">2025</td>
     <td><b>⚖️&nbsp;BriefAuction</b></td>
     <td>Nationwide court real-estate auction data — search, monthly stats &amp; guides</td>
     <td align="center"><a href="https://briefauction.com">🔗</a></td>
@@ -112,48 +112,12 @@
 
 <!-- PRODUCTIVE-TIME:START -->
 
-<table>
-  <tr>
-    <th></th>
-    <th align="left">Period<img src="./output/spacer.svg" width="60" height="1" alt=""></th>
-    <th align="left">Hours<img src="./output/spacer.svg" width="45" height="1" alt=""></th>
-    <th align="right">Commits<img src="./output/spacer.svg" width="30" height="1" alt=""></th>
-    <th align="left">Activity</th>
-    <th align="right">Share</th>
-  </tr>
-  <tr>
-    <td align="center">🌅</td>
-    <td><b>Morning</b></td>
-    <td>06-12</td>
-    <td align="right">84</td>
-    <td>██████································································································</td>
-    <td align="right"><b>16.6%</b></td>
-  </tr>
-  <tr>
-    <td align="center">🌞</td>
-    <td><b>Daytime</b></td>
-    <td>12-18</td>
-    <td align="right">216</td>
-    <td>███████████████··································································</td>
-    <td align="right"><b>42.8%</b></td>
-  </tr>
-  <tr>
-    <td align="center">🌆</td>
-    <td><b>Evening</b></td>
-    <td>18-24</td>
-    <td align="right">97</td>
-    <td>███████····························································································</td>
-    <td align="right"><b>19.2%</b></td>
-  </tr>
-  <tr>
-    <td align="center">🌙</td>
-    <td><b>Night</b></td>
-    <td>00-06</td>
-    <td align="right">108</td>
-    <td>████████·························································································</td>
-    <td align="right"><b>21.4%</b></td>
-  </tr>
-</table>
+<pre>
+1     🌅    Morning     06-12       84 commits      ███·················    16.6%
+2     🌞    Daytime     12-18      216 commits      █████████···········    42.8%
+3     🌆    Evening     18-24       97 commits      ████················    19.2%
+4     🌙    Night       00-06      108 commits      ████················    21.4%
+</pre>
 
 <!-- PRODUCTIVE-TIME:END -->
 
