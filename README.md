@@ -12,8 +12,8 @@
 
 <table>
   <tr>
-    <th align="left">Category</th>
-    <th align="left" width="700">Technologies</th>
+    <th align="center">Category</th>
+    <th align="center" width="700">Technologies</th>
   </tr>
   <tr valign="middle">
     <td align="center"><b>Language</b></td>
@@ -80,10 +80,10 @@
 
 <table width="100%">
   <tr>
-    <th>Date</th>
-    <th align="left" width="150">Project</th>
-    <th align="left" width="580">Description</th>
-    <th>Links</th>
+    <th align="center">Date</th>
+    <th align="center" width="150">Project</th>
+    <th align="center" width="580">Description</th>
+    <th align="center">Links</th>
   </tr>
   <tr valign="middle">
     <td align="center">2026</td>
