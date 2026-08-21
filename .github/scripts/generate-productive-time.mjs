@@ -92,16 +92,10 @@ const rows = [
   { emoji: "🌙", label: "Night",   time: "00-06", n: buckets.night },
 ].map((r) => ({ ...r, percent: (r.n / total) * 100 }));
 
-// productive-box 스타일 막대 (░▏▎▍▌▋▊▉█, size 20)
-function makeBar(percent, size = 20) {
-  const syms = "░▏▎▍▌▋▊▉█";
-  const frac = Math.floor((size * 8 * percent) / 100);
-  const full = Math.floor(frac / 8);
-  const semi = frac % 8;
-  let bar = syms[8].repeat(full);
-  if (full < size) bar += syms[semi];
-  bar += syms[0].repeat(Math.max(0, size - full - 1));
-  return bar;
+// 막대: 폭이 일정한 █ 하나로만(빈 칸은 공백) → Windows에서도 안 깨지고 정렬됨
+function makeBar(percent, size = 30) {
+  const full = Math.round((percent / 100) * size);
+  return "█".repeat(full) + " ".repeat(Math.max(0, size - full));
 }
 
 const lines = rows
