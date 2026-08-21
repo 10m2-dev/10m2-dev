@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="495" height="165" viewBox="0 0 495 165" font-family="'Segoe UI', Ubuntu, Helvetica, Arial, sans-serif">
-  <rect x="1" y="1" width="493" height="163" rx="12" fill="#1a1b27" stroke="#29304d"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="495" height="232" viewBox="0 0 495 232" font-family="'Segoe UI', Ubuntu, Helvetica, Arial, sans-serif">
+  <rect x="1" y="1" width="493" height="230" rx="12" fill="#1a1b27" stroke="#29304d"/>
   <line x1="165" y1="28" x2="165" y2="138" stroke="#29304d"/>
   <line x1="330" y1="28" x2="330" y2="138" stroke="#29304d"/>
 
-  <text x="82.5" y="72" text-anchor="middle" font-size="32" font-weight="700" fill="#c0caf5">539</text>
+  <text x="82.5" y="72" text-anchor="middle" font-size="32" font-weight="700" fill="#c0caf5">551</text>
   <text x="82.5" y="104" text-anchor="middle" font-size="13" fill="#7aa2f7">Total Contributions</text>
   <text x="82.5" y="126" text-anchor="middle" font-size="11" fill="#565f89">2025.08.17 – Now</text>
 
@@ -16,4 +16,14 @@
   <text x="412.5" y="72" text-anchor="middle" font-size="32" font-weight="700" fill="#c0caf5">122</text>
   <text x="412.5" y="104" text-anchor="middle" font-size="13" fill="#7aa2f7">Longest Streak</text>
   <text x="412.5" y="126" text-anchor="middle" font-size="11" fill="#565f89">04.20 – 08.19</text>
+
+  <line x1="24" y1="156" x2="471" y2="156" stroke="#29304d"/>
+  <text x="62" y="190" text-anchor="middle" font-size="20" font-weight="700" fill="#c0caf5">27</text>
+  <text x="62" y="210" text-anchor="middle" font-size="11" fill="#7aa2f7">Commits</text>
+  <text x="185.5" y="190" text-anchor="middle" font-size="20" font-weight="700" fill="#c0caf5">0</text>
+  <text x="185.5" y="210" text-anchor="middle" font-size="11" fill="#7aa2f7">PRs</text>
+  <text x="309.5" y="190" text-anchor="middle" font-size="20" font-weight="700" fill="#c0caf5">0</text>
+  <text x="309.5" y="210" text-anchor="middle" font-size="11" fill="#7aa2f7">Issues</text>
+  <text x="433" y="190" text-anchor="middle" font-size="20" font-weight="700" fill="#c0caf5">0</text>
+  <text x="433" y="210" text-anchor="middle" font-size="11" fill="#7aa2f7">Reviews</text>
 </svg>

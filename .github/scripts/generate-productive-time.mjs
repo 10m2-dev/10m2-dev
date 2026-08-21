@@ -80,12 +80,22 @@ const ptLines = ptRows
 const ptBlock = `${PT_START}\n\n<pre>\n${ptLines}\n</pre>\n\n${PT_END}`;
 
 // ============ (2) Streak (디자인 SVG) ============
-const cal = (await gql(`query {
-  viewer { contributionsCollection { contributionCalendar {
-    totalContributions weeks { contributionDays { date contributionCount } } } } }
-}`)).viewer.contributionsCollection.contributionCalendar;
+const cc = (await gql(`query {
+  viewer { contributionsCollection {
+    totalCommitContributions totalPullRequestContributions
+    totalIssueContributions totalPullRequestReviewContributions
+    contributionCalendar { totalContributions weeks { contributionDays { date contributionCount } } }
+  } }
+}`)).viewer.contributionsCollection;
+const cal = cc.contributionCalendar;
 const days = cal.weeks.flatMap((w) => w.contributionDays); // 오름차순
 const totalContrib = cal.totalContributions;
+const stats = {
+  commits: cc.totalCommitContributions,
+  prs: cc.totalPullRequestContributions,
+  issues: cc.totalIssueContributions,
+  reviews: cc.totalPullRequestReviewContributions,
+};
 
 // 최장 연속 + 구간
 let longest = 0, run = 0, runStart = 0, lStart = 0, lEnd = 0;
@@ -114,7 +124,7 @@ const longestRange = longest === 0 ? "—"
   : longest === 1 ? fFull(days[lStart].date)
   : `${fMD(days[lStart].date)} – ${fMD(days[lEnd].date)}`;
 
-const W = 495, H = 165, cx = [82.5, 247.5, 412.5];
+const W = 495, H = 232, cx = [82.5, 247.5, 412.5], cx4 = [62, 185.5, 309.5, 433];
 const themes = {
   dark:  { bg: "#1a1b27", border: "#29304d", div: "#29304d", num: "#c0caf5", label: "#7aa2f7", date: "#565f89", accent: "#ff9e64" },
   light: { bg: "#ffffff", border: "#d0d7de", div: "#d0d7de", num: "#1f2328", label: "#0969da", date: "#57606a", accent: "#e8590c" },
@@ -137,6 +147,16 @@ const buildStreak = (C) => `<svg xmlns="http://www.w3.org/2000/svg" width="${W}"
   <text x="${cx[2]}" y="72" text-anchor="middle" font-size="32" font-weight="700" fill="${C.num}">${longest}</text>
   <text x="${cx[2]}" y="104" text-anchor="middle" font-size="13" fill="${C.label}">Longest Streak</text>
   <text x="${cx[2]}" y="126" text-anchor="middle" font-size="11" fill="${C.date}">${longestRange}</text>
+
+  <line x1="24" y1="156" x2="${W - 24}" y2="156" stroke="${C.div}"/>
+  <text x="${cx4[0]}" y="190" text-anchor="middle" font-size="20" font-weight="700" fill="${C.num}">${stats.commits}</text>
+  <text x="${cx4[0]}" y="210" text-anchor="middle" font-size="11" fill="${C.label}">Commits</text>
+  <text x="${cx4[1]}" y="190" text-anchor="middle" font-size="20" font-weight="700" fill="${C.num}">${stats.prs}</text>
+  <text x="${cx4[1]}" y="210" text-anchor="middle" font-size="11" fill="${C.label}">PRs</text>
+  <text x="${cx4[2]}" y="190" text-anchor="middle" font-size="20" font-weight="700" fill="${C.num}">${stats.issues}</text>
+  <text x="${cx4[2]}" y="210" text-anchor="middle" font-size="11" fill="${C.label}">Issues</text>
+  <text x="${cx4[3]}" y="190" text-anchor="middle" font-size="20" font-weight="700" fill="${C.num}">${stats.reviews}</text>
+  <text x="${cx4[3]}" y="210" text-anchor="middle" font-size="11" fill="${C.label}">Reviews</text>
 </svg>`;
 
 // ============ 출력 ============
