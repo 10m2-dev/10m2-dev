@@ -92,9 +92,9 @@
 
 ```text
 1    🌅   Morning    06-12      84 commits     ███·················   17.2%
-2    🌞   Daytime    12-18     198 commits     ████████············   40.7%
+2    🌞   Daytime    12-18     199 commits     ████████············   40.8%
 3    🌆   Evening    18-24      97 commits     ████················   19.9%
-4    🌙   Night      00-06     108 commits     ████················   22.2%
+4    🌙   Night      00-06     108 commits     ████················   22.1%
 ```
 
 <!-- PRODUCTIVE-TIME:END -->
@@ -104,4 +104,8 @@
 <!-- ===================== STREAK (image, auto-updated) ===================== -->
 <h3 align="left">🔥 Commit Streak</h3>
 
-<img src="./output/streak.svg" alt="commit streak" />
+<picture>
+  <source media="(prefers-color-scheme: dark)"  srcset="./output/streak-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./output/streak-light.svg">
+  <img src="./output/streak-dark.svg" alt="commit streak" />
+</picture>

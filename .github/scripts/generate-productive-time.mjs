@@ -114,13 +114,12 @@ const longestRange = longest === 0 ? "—"
   : longest === 1 ? fFull(days[lStart].date)
   : `${fMD(days[lStart].date)} – ${fMD(days[lEnd].date)}`;
 
-const C = {
-  bg: "#1a1b27", border: "#29304d", div: "#29304d",
-  num: "#c0caf5", label: "#7aa2f7", date: "#565f89",
-  accent: "#ff9e64",
-};
 const W = 495, H = 165, cx = [82.5, 247.5, 412.5];
-const streakSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="'Segoe UI', Ubuntu, Helvetica, Arial, sans-serif">
+const themes = {
+  dark:  { bg: "#1a1b27", border: "#29304d", div: "#29304d", num: "#c0caf5", label: "#7aa2f7", date: "#565f89", accent: "#ff9e64" },
+  light: { bg: "#ffffff", border: "#d0d7de", div: "#d0d7de", num: "#1f2328", label: "#0969da", date: "#57606a", accent: "#e8590c" },
+};
+const buildStreak = (C) => `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="'Segoe UI', Ubuntu, Helvetica, Arial, sans-serif">
   <rect x="1" y="1" width="${W - 2}" height="${H - 2}" rx="12" fill="${C.bg}" stroke="${C.border}"/>
   <line x1="165" y1="28" x2="165" y2="138" stroke="${C.div}"/>
   <line x1="330" y1="28" x2="330" y2="138" stroke="${C.div}"/>
@@ -147,7 +146,8 @@ if (!re.test(readme)) { console.error("PT markers not found"); process.exit(1); 
 readme = readme.replace(re, ptBlock);
 writeFileSync(README, readme);
 mkdirSync("output", { recursive: true });
-writeFileSync("output/streak.svg", streakSvg);
+writeFileSync("output/streak-dark.svg", buildStreak(themes.dark));
+writeFileSync("output/streak-light.svg", buildStreak(themes.light));
 console.log("updated", { buckets, total, current, longest, totalContrib, currentRange, longestRange });
 
 // CI: 직접 커밋/푸시
