@@ -13,7 +13,7 @@
 <table>
   <tr>
     <th align="left">Category</th>
-    <th align="left">Technologies<br><img src="./output/spacer.svg" width="680" height="1" alt=""></th>
+    <th align="left" width="700">Technologies</th>
   </tr>
   <tr valign="middle">
     <td align="center"><b>Language</b></td>
@@ -81,8 +81,8 @@
 <table width="100%">
   <tr>
     <th>Date</th>
-    <th align="left">Project<img src="./output/spacer.svg" width="95" height="1" alt=""></th>
-    <th align="left">Description<img src="./output/spacer.svg" width="470" height="1" alt=""></th>
+    <th align="left" width="150">Project</th>
+    <th align="left" width="580">Description</th>
     <th>Links</th>
   </tr>
   <tr valign="middle">
