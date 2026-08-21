@@ -2,30 +2,30 @@
   <rect x="1" y="1" width="844" height="204" rx="12" fill="#ffffff" stroke="#d0d7de"/>
   <text x="46" y="52" text-anchor="middle" font-size="17">🌅</text>
   <text x="74" y="51" font-size="14" font-weight="600" fill="#1f2328">Morning</text>
-  <text x="184" y="51" font-size="13" fill="#57606a">06-12</text>
+  <text x="184" y="51" font-size="13" fill="#8b949e">06-12</text>
   <text x="374" y="51" text-anchor="end" font-size="13" fill="#1f2328">84 commits</text>
-  <rect x="402" y="40" width="300" height="12" rx="6" fill="#dfe8f5"/>
-  <rect x="402" y="40" width="49.8" height="12" rx="6" fill="#1f6feb"/>
-  <text x="806" y="51" text-anchor="end" font-size="14" font-weight="700" fill="#1f6feb">16.6%</text>
+  <rect x="402" y="40" width="300" height="12" rx="6" fill="#eaeef2"/>
+  <rect x="402" y="40" width="49.8" height="12" rx="6" fill="#000000"/>
+  <text x="806" y="51" text-anchor="end" font-size="14" font-weight="700" fill="#000000">16.6%</text>
   <text x="46" y="90" text-anchor="middle" font-size="17">🌞</text>
   <text x="74" y="89" font-size="14" font-weight="600" fill="#1f2328">Daytime</text>
-  <text x="184" y="89" font-size="13" fill="#57606a">12-18</text>
+  <text x="184" y="89" font-size="13" fill="#8b949e">12-18</text>
   <text x="374" y="89" text-anchor="end" font-size="13" fill="#1f2328">216 commits</text>
-  <rect x="402" y="78" width="300" height="12" rx="6" fill="#dfe8f5"/>
-  <rect x="402" y="78" width="128.4" height="12" rx="6" fill="#1f6feb"/>
-  <text x="806" y="89" text-anchor="end" font-size="14" font-weight="700" fill="#1f6feb">42.8%</text>
+  <rect x="402" y="78" width="300" height="12" rx="6" fill="#eaeef2"/>
+  <rect x="402" y="78" width="128.4" height="12" rx="6" fill="#000000"/>
+  <text x="806" y="89" text-anchor="end" font-size="14" font-weight="700" fill="#000000">42.8%</text>
   <text x="46" y="128" text-anchor="middle" font-size="17">🌆</text>
   <text x="74" y="127" font-size="14" font-weight="600" fill="#1f2328">Evening</text>
-  <text x="184" y="127" font-size="13" fill="#57606a">18-24</text>
+  <text x="184" y="127" font-size="13" fill="#8b949e">18-24</text>
   <text x="374" y="127" text-anchor="end" font-size="13" fill="#1f2328">97 commits</text>
-  <rect x="402" y="116" width="300" height="12" rx="6" fill="#dfe8f5"/>
-  <rect x="402" y="116" width="57.6" height="12" rx="6" fill="#1f6feb"/>
-  <text x="806" y="127" text-anchor="end" font-size="14" font-weight="700" fill="#1f6feb">19.2%</text>
+  <rect x="402" y="116" width="300" height="12" rx="6" fill="#eaeef2"/>
+  <rect x="402" y="116" width="57.6" height="12" rx="6" fill="#000000"/>
+  <text x="806" y="127" text-anchor="end" font-size="14" font-weight="700" fill="#000000">19.2%</text>
   <text x="46" y="166" text-anchor="middle" font-size="17">🌙</text>
   <text x="74" y="165" font-size="14" font-weight="600" fill="#1f2328">Night</text>
-  <text x="184" y="165" font-size="13" fill="#57606a">00-06</text>
+  <text x="184" y="165" font-size="13" fill="#8b949e">00-06</text>
   <text x="374" y="165" text-anchor="end" font-size="13" fill="#1f2328">108 commits</text>
-  <rect x="402" y="154" width="300" height="12" rx="6" fill="#dfe8f5"/>
-  <rect x="402" y="154" width="64.2" height="12" rx="6" fill="#1f6feb"/>
-  <text x="806" y="165" text-anchor="end" font-size="14" font-weight="700" fill="#1f6feb">21.4%</text>
+  <rect x="402" y="154" width="300" height="12" rx="6" fill="#eaeef2"/>
+  <rect x="402" y="154" width="64.2" height="12" rx="6" fill="#000000"/>
+  <text x="806" y="165" text-anchor="end" font-size="14" font-weight="700" fill="#000000">21.4%</text>
 </svg>

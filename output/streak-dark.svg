@@ -1,31 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="846" height="165" viewBox="0 0 846 165" font-family="'Segoe UI', Ubuntu, Helvetica, Arial, sans-serif">
-  <rect x="1" y="1" width="844" height="163" rx="12" fill="#1a1b27" stroke="#29304d"/>
-  <line x1="141" y1="30" x2="141" y2="135" stroke="#29304d"/>
-  <line x1="282" y1="30" x2="282" y2="135" stroke="#29304d"/>
-  <line x1="423" y1="30" x2="423" y2="135" stroke="#29304d"/>
-  <line x1="564" y1="30" x2="564" y2="135" stroke="#29304d"/>
-  <line x1="705" y1="30" x2="705" y2="135" stroke="#29304d"/>
+  <rect x="1" y="1" width="844" height="163" rx="12" fill="#161b22" stroke="#30363d"/>
+  <line x1="141" y1="30" x2="141" y2="135" stroke="#30363d"/>
+  <line x1="282" y1="30" x2="282" y2="135" stroke="#30363d"/>
+  <line x1="423" y1="30" x2="423" y2="135" stroke="#30363d"/>
+  <line x1="564" y1="30" x2="564" y2="135" stroke="#30363d"/>
+  <line x1="705" y1="30" x2="705" y2="135" stroke="#30363d"/>
 
-  <text x="70.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#c0caf5">559</text>
-  <text x="70.5" y="100" text-anchor="middle" font-size="12" fill="#7aa2f7">Total Contributions</text>
-  <text x="70.5" y="120" text-anchor="middle" font-size="10" fill="#565f89">2026.01.01 – Now</text>
+  <text x="70.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#c9d1d9">559</text>
+  <text x="70.5" y="100" text-anchor="middle" font-size="12" fill="#8b949e">Total Contributions</text>
+  <text x="70.5" y="120" text-anchor="middle" font-size="10" fill="#6e7681">2026.01.01 – Now</text>
 
   <text x="211.5" y="32" text-anchor="middle" font-size="16">🔥</text>
-  <circle cx="211.5" cy="64" r="26" fill="none" stroke="#58a6ff" stroke-width="3"/>
-  <text x="211.5" y="72" text-anchor="middle" font-size="23" font-weight="700" fill="#58a6ff">124</text>
-  <text x="211.5" y="108" text-anchor="middle" font-size="12" font-weight="600" fill="#58a6ff">Current Streak</text>
-  <text x="211.5" y="127" text-anchor="middle" font-size="10" fill="#565f89">04.20 – 08.21</text>
+  <circle cx="211.5" cy="64" r="26" fill="none" stroke="#ffffff" stroke-width="3"/>
+  <text x="211.5" y="72" text-anchor="middle" font-size="23" font-weight="700" fill="#ffffff">124</text>
+  <text x="211.5" y="108" text-anchor="middle" font-size="12" font-weight="600" fill="#ffffff">Current Streak</text>
+  <text x="211.5" y="127" text-anchor="middle" font-size="10" fill="#6e7681">04.20 – 08.21</text>
 
-  <text x="352.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#c0caf5">124</text>
-  <text x="352.5" y="100" text-anchor="middle" font-size="12" fill="#7aa2f7">Longest Streak</text>
-  <text x="352.5" y="120" text-anchor="middle" font-size="10" fill="#565f89">04.20 – 08.21</text>
+  <text x="352.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#c9d1d9">124</text>
+  <text x="352.5" y="100" text-anchor="middle" font-size="12" fill="#8b949e">Longest Streak</text>
+  <text x="352.5" y="120" text-anchor="middle" font-size="10" fill="#6e7681">04.20 – 08.21</text>
 
-  <text x="493.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#58a6ff">43</text>
-  <text x="493.5" y="100" text-anchor="middle" font-size="12" fill="#7aa2f7">Best Day</text>
+  <text x="493.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#ffffff">43</text>
+  <text x="493.5" y="100" text-anchor="middle" font-size="12" fill="#8b949e">Best Day</text>
 
-  <text x="634.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#c0caf5">128</text>
-  <text x="634.5" y="100" text-anchor="middle" font-size="12" fill="#7aa2f7">Active Days</text>
+  <text x="634.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#c9d1d9">128</text>
+  <text x="634.5" y="100" text-anchor="middle" font-size="12" fill="#8b949e">Active Days</text>
 
-  <text x="775.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#c0caf5">2.4</text>
-  <text x="775.5" y="100" text-anchor="middle" font-size="12" fill="#7aa2f7">Avg / Day</text>
+  <text x="775.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#c9d1d9">2.4</text>
+  <text x="775.5" y="100" text-anchor="middle" font-size="12" fill="#8b949e">Avg / Day</text>
 </svg>
