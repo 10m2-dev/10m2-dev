@@ -6,24 +6,24 @@
   <line x1="564" y1="30" x2="564" y2="135" stroke="#d0d7de"/>
   <line x1="705" y1="30" x2="705" y2="135" stroke="#d0d7de"/>
 
-  <text x="70.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#1f2328">555</text>
+  <text x="70.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#1f2328">559</text>
   <text x="70.5" y="100" text-anchor="middle" font-size="12" fill="#0969da">Total Contributions</text>
   <text x="70.5" y="120" text-anchor="middle" font-size="10" fill="#57606a">2026.01.01 – Now</text>
 
   <text x="211.5" y="32" text-anchor="middle" font-size="16">🔥</text>
   <circle cx="211.5" cy="64" r="26" fill="none" stroke="#e8590c" stroke-width="3"/>
-  <text x="211.5" y="72" text-anchor="middle" font-size="23" font-weight="700" fill="#e8590c">1</text>
+  <text x="211.5" y="72" text-anchor="middle" font-size="23" font-weight="700" fill="#e8590c">124</text>
   <text x="211.5" y="108" text-anchor="middle" font-size="12" font-weight="600" fill="#e8590c">Current Streak</text>
-  <text x="211.5" y="127" text-anchor="middle" font-size="10" fill="#57606a">2026.08.21</text>
+  <text x="211.5" y="127" text-anchor="middle" font-size="10" fill="#57606a">04.20 – 08.21</text>
 
-  <text x="352.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#1f2328">122</text>
+  <text x="352.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#1f2328">124</text>
   <text x="352.5" y="100" text-anchor="middle" font-size="12" fill="#0969da">Longest Streak</text>
-  <text x="352.5" y="120" text-anchor="middle" font-size="10" fill="#57606a">04.20 – 08.19</text>
+  <text x="352.5" y="120" text-anchor="middle" font-size="10" fill="#57606a">04.20 – 08.21</text>
 
   <text x="493.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#e8590c">43</text>
   <text x="493.5" y="100" text-anchor="middle" font-size="12" fill="#0969da">Best Day</text>
 
-  <text x="634.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#1f2328">127</text>
+  <text x="634.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#1f2328">128</text>
   <text x="634.5" y="100" text-anchor="middle" font-size="12" fill="#0969da">Active Days</text>
 
   <text x="775.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#1f2328">2.4</text>
