@@ -80,22 +80,16 @@ const ptLines = ptRows
 const ptBlock = `${PT_START}\n\n<pre>\n${ptLines}\n</pre>\n\n${PT_END}`;
 
 // ============ (2) Streak (디자인 SVG) ============
-const cc = (await gql(`query {
-  viewer { contributionsCollection {
-    totalCommitContributions totalPullRequestContributions
-    totalIssueContributions totalPullRequestReviewContributions
-    contributionCalendar { totalContributions weeks { contributionDays { date contributionCount } } }
-  } }
-}`)).viewer.contributionsCollection;
-const cal = cc.contributionCalendar;
+const cal = (await gql(`query {
+  viewer { contributionsCollection { contributionCalendar {
+    totalContributions weeks { contributionDays { date contributionCount } } } } }
+}`)).viewer.contributionsCollection.contributionCalendar;
 const days = cal.weeks.flatMap((w) => w.contributionDays); // 오름차순
 const totalContrib = cal.totalContributions;
 const stats = {
-  commits: cc.totalCommitContributions,
-  prs: cc.totalPullRequestContributions,
-  issues: cc.totalIssueContributions,
-  reviews: cc.totalPullRequestReviewContributions,
   bestDay: days.reduce((m, d) => Math.max(m, d.contributionCount), 0),
+  activeDays: days.filter((d) => d.contributionCount > 0).length,
+  avgPerDay: (totalContrib / days.length).toFixed(1),
 };
 
 // 최장 연속 + 구간
@@ -125,41 +119,41 @@ const longestRange = longest === 0 ? "—"
   : longest === 1 ? fFull(days[lStart].date)
   : `${fMD(days[lStart].date)} – ${fMD(days[lEnd].date)}`;
 
-const W = 495, H = 232, cx = [82.5, 247.5, 412.5], cx5 = [49.5, 148.5, 247.5, 346.5, 445.5];
+const W = 846, H = 165, cx = [70.5, 211.5, 352.5, 493.5, 634.5, 775.5];
 const themes = {
   dark:  { bg: "#1a1b27", border: "#29304d", div: "#29304d", num: "#c0caf5", label: "#7aa2f7", date: "#565f89", accent: "#ff9e64" },
   light: { bg: "#ffffff", border: "#d0d7de", div: "#d0d7de", num: "#1f2328", label: "#0969da", date: "#57606a", accent: "#e8590c" },
 };
 const buildStreak = (C) => `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="'Segoe UI', Ubuntu, Helvetica, Arial, sans-serif">
   <rect x="1" y="1" width="${W - 2}" height="${H - 2}" rx="12" fill="${C.bg}" stroke="${C.border}"/>
-  <line x1="165" y1="28" x2="165" y2="138" stroke="${C.div}"/>
-  <line x1="330" y1="28" x2="330" y2="138" stroke="${C.div}"/>
+  <line x1="141" y1="30" x2="141" y2="135" stroke="${C.div}"/>
+  <line x1="282" y1="30" x2="282" y2="135" stroke="${C.div}"/>
+  <line x1="423" y1="30" x2="423" y2="135" stroke="${C.div}"/>
+  <line x1="564" y1="30" x2="564" y2="135" stroke="${C.div}"/>
+  <line x1="705" y1="30" x2="705" y2="135" stroke="${C.div}"/>
 
-  <text x="${cx[0]}" y="72" text-anchor="middle" font-size="32" font-weight="700" fill="${C.num}">${totalContrib}</text>
-  <text x="${cx[0]}" y="104" text-anchor="middle" font-size="13" fill="${C.label}">Total Contributions</text>
-  <text x="${cx[0]}" y="126" text-anchor="middle" font-size="11" fill="${C.date}">${totalRange}</text>
+  <text x="${cx[0]}" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="${C.num}">${totalContrib}</text>
+  <text x="${cx[0]}" y="100" text-anchor="middle" font-size="12" fill="${C.label}">Total Contributions</text>
+  <text x="${cx[0]}" y="120" text-anchor="middle" font-size="10" fill="${C.date}">${totalRange}</text>
 
-  <text x="${cx[1]}" y="30" text-anchor="middle" font-size="18">🔥</text>
-  <circle cx="${cx[1]}" cy="62" r="30" fill="none" stroke="${C.accent}" stroke-width="3"/>
-  <text x="${cx[1]}" y="71" text-anchor="middle" font-size="27" font-weight="700" fill="${C.accent}">${current}</text>
-  <text x="${cx[1]}" y="112" text-anchor="middle" font-size="13" font-weight="600" fill="${C.accent}">Current Streak</text>
-  <text x="${cx[1]}" y="132" text-anchor="middle" font-size="11" fill="${C.date}">${currentRange}</text>
+  <text x="${cx[1]}" y="32" text-anchor="middle" font-size="16">🔥</text>
+  <circle cx="${cx[1]}" cy="64" r="26" fill="none" stroke="${C.accent}" stroke-width="3"/>
+  <text x="${cx[1]}" y="72" text-anchor="middle" font-size="23" font-weight="700" fill="${C.accent}">${current}</text>
+  <text x="${cx[1]}" y="108" text-anchor="middle" font-size="12" font-weight="600" fill="${C.accent}">Current Streak</text>
+  <text x="${cx[1]}" y="127" text-anchor="middle" font-size="10" fill="${C.date}">${currentRange}</text>
 
-  <text x="${cx[2]}" y="72" text-anchor="middle" font-size="32" font-weight="700" fill="${C.num}">${longest}</text>
-  <text x="${cx[2]}" y="104" text-anchor="middle" font-size="13" fill="${C.label}">Longest Streak</text>
-  <text x="${cx[2]}" y="126" text-anchor="middle" font-size="11" fill="${C.date}">${longestRange}</text>
+  <text x="${cx[2]}" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="${C.num}">${longest}</text>
+  <text x="${cx[2]}" y="100" text-anchor="middle" font-size="12" fill="${C.label}">Longest Streak</text>
+  <text x="${cx[2]}" y="120" text-anchor="middle" font-size="10" fill="${C.date}">${longestRange}</text>
 
-  <line x1="24" y1="156" x2="${W - 24}" y2="156" stroke="${C.div}"/>
-  <text x="${cx5[0]}" y="190" text-anchor="middle" font-size="19" font-weight="700" fill="${C.num}">${stats.commits}</text>
-  <text x="${cx5[0]}" y="210" text-anchor="middle" font-size="11" fill="${C.label}">Commits</text>
-  <text x="${cx5[1]}" y="190" text-anchor="middle" font-size="19" font-weight="700" fill="${C.num}">${stats.prs}</text>
-  <text x="${cx5[1]}" y="210" text-anchor="middle" font-size="11" fill="${C.label}">PRs</text>
-  <text x="${cx5[2]}" y="190" text-anchor="middle" font-size="19" font-weight="700" fill="${C.num}">${stats.issues}</text>
-  <text x="${cx5[2]}" y="210" text-anchor="middle" font-size="11" fill="${C.label}">Issues</text>
-  <text x="${cx5[3]}" y="190" text-anchor="middle" font-size="19" font-weight="700" fill="${C.num}">${stats.reviews}</text>
-  <text x="${cx5[3]}" y="210" text-anchor="middle" font-size="11" fill="${C.label}">Reviews</text>
-  <text x="${cx5[4]}" y="190" text-anchor="middle" font-size="19" font-weight="700" fill="${C.accent}">${stats.bestDay}</text>
-  <text x="${cx5[4]}" y="210" text-anchor="middle" font-size="11" fill="${C.label}">Best Day</text>
+  <text x="${cx[3]}" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="${C.accent}">${stats.bestDay}</text>
+  <text x="${cx[3]}" y="100" text-anchor="middle" font-size="12" fill="${C.label}">Best Day</text>
+
+  <text x="${cx[4]}" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="${C.num}">${stats.activeDays}</text>
+  <text x="${cx[4]}" y="100" text-anchor="middle" font-size="12" fill="${C.label}">Active Days</text>
+
+  <text x="${cx[5]}" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="${C.num}">${stats.avgPerDay}</text>
+  <text x="${cx[5]}" y="100" text-anchor="middle" font-size="12" fill="${C.label}">Avg / Day</text>
 </svg>`;
 
 // ============ 출력 ============
