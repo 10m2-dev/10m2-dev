@@ -77,7 +77,7 @@ const ptLines = ptRows
     return `${i + 1}     ${r.emoji}    ${label}     ${r.time}      ${n} commits      ${makeBar(r.percent)}    ${pct}%`;
   })
   .join("\n");
-const ptBlock = `${PT_START}\n\n\`\`\`text\n${ptLines}\n\`\`\`\n\n${PT_END}`;
+const ptBlock = `${PT_START}\n\n<pre>\n${ptLines}\n</pre>\n\n${PT_END}`;
 
 // ============ (2) Streak (디자인 SVG) ============
 const cal = (await gql(`query {

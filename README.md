@@ -81,7 +81,7 @@
   <tr>
     <th>Date</th>
     <th align="left">Project</th>
-    <th align="left">Description</th>
+    <th align="left">Description<br><img src="./output/spacer.svg" width="620" height="1" alt=""></th>
     <th>Links</th>
   </tr>
   <tr>
@@ -111,12 +111,12 @@
 
 <!-- PRODUCTIVE-TIME:START -->
 
-```text
-1     🌅    Morning     06-12       84 commits      ███·················    17.0%
-2     🌞    Daytime     12-18      205 commits      ████████············    41.5%
+<pre>
+1     🌅    Morning     06-12       84 commits      ███·················    16.9%
+2     🌞    Daytime     12-18      207 commits      ████████············    41.7%
 3     🌆    Evening     18-24       97 commits      ████················    19.6%
-4     🌙    Night       00-06      108 commits      ████················    21.9%
-```
+4     🌙    Night       00-06      108 commits      ████················    21.8%
+</pre>
 
 <!-- PRODUCTIVE-TIME:END -->
 
