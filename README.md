@@ -80,23 +80,23 @@
 <table width="100%">
   <tr>
     <th>Date</th>
-    <th align="left">Project</th>
+    <th align="left">Project<br><img src="./output/spacer.svg" width="150" height="1" alt=""></th>
     <th align="left">Description<br><img src="./output/spacer.svg" width="560" height="1" alt=""></th>
     <th>Links</th>
   </tr>
-  <tr>
+  <tr valign="top">
     <td align="center"><sub>2026</sub></td>
     <td><b>🧑‍💻&nbsp;Vibe101</b></td>
     <td>Learn-by-building "vibe coding" platform (KO/EN)</td>
     <td align="center"><a href="https://vibe101.dev">🔗</a></td>
   </tr>
-  <tr>
+  <tr valign="top">
     <td align="center"><sub>2026</sub></td>
     <td><b>🏠&nbsp;Ondol</b></td>
     <td>Rent/Jeonse verification &amp; scam-risk check for foreigners in Korea</td>
     <td align="center"><a href="https://ondolkorea.com">🔗</a></td>
   </tr>
-  <tr>
+  <tr valign="top">
     <td align="center"><sub>2025</sub></td>
     <td><b>⚖️&nbsp;BriefAuction</b></td>
     <td>Nationwide court real-estate auction data — search, monthly stats &amp; guides</td>
