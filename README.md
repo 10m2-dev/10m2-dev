@@ -91,8 +91,8 @@
 <!-- PRODUCTIVE-TIME:START -->
 
 ```text
-1    🌅   Morning    06-12      84 commits     17.4%   ████
-2    🌞   Daytime    12-18     195 commits     40.3%   ██████████
+1    🌅   Morning    06-12      84 commits     17.3%   ████
+2    🌞   Daytime    12-18     196 commits     40.4%   ██████████
 3    🌆   Evening    18-24      97 commits     20.0%   █████
 4    🌙   Night      00-06     108 commits     22.3%   ██████
 ```
@@ -101,15 +101,7 @@
 
 <br/>
 
-<!-- ===================== STREAK (text, auto-updated) ===================== -->
+<!-- ===================== STREAK (image, auto-updated) ===================== -->
 <h3 align="left">🔥 Commit Streak</h3>
 
-<!-- STREAK:START -->
-
-```text
-Current Streak 1 days
-Longest Streak 122 days
-Contributions  538 total
-```
-
-<!-- STREAK:END -->
+<img src="./output/streak.svg" alt="commit streak" />
