@@ -6,9 +6,9 @@
   <line x1="564" y1="30" x2="564" y2="135" stroke="#29304d"/>
   <line x1="705" y1="30" x2="705" y2="135" stroke="#29304d"/>
 
-  <text x="70.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#c0caf5">539</text>
+  <text x="70.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#c0caf5">555</text>
   <text x="70.5" y="100" text-anchor="middle" font-size="12" fill="#7aa2f7">Total Contributions</text>
-  <text x="70.5" y="120" text-anchor="middle" font-size="10" fill="#565f89">2025.08.17 – Now</text>
+  <text x="70.5" y="120" text-anchor="middle" font-size="10" fill="#565f89">2026.01.01 – Now</text>
 
   <text x="211.5" y="32" text-anchor="middle" font-size="16">🔥</text>
   <circle cx="211.5" cy="64" r="26" fill="none" stroke="#ff9e64" stroke-width="3"/>
@@ -26,6 +26,6 @@
   <text x="634.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#c0caf5">127</text>
   <text x="634.5" y="100" text-anchor="middle" font-size="12" fill="#7aa2f7">Active Days</text>
 
-  <text x="775.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#c0caf5">1.5</text>
+  <text x="775.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#c0caf5">2.4</text>
   <text x="775.5" y="100" text-anchor="middle" font-size="12" fill="#7aa2f7">Avg / Day</text>
 </svg>

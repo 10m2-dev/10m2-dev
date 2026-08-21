@@ -28,7 +28,7 @@ async function gql(query, variables = {}) {
   return json.data;
 }
 
-const { viewer } = await gql(`query { viewer { id login } }`);
+const { viewer } = await gql(`query { viewer { id login createdAt } }`);
 
 // ============ (1) 시간별 커밋 ============
 const buckets = { morning: 0, daytime: 0, evening: 0, night: 0 };
@@ -80,12 +80,25 @@ const ptLines = ptRows
 const ptBlock = `${PT_START}\n\n<pre>\n${ptLines}\n</pre>\n\n${PT_END}`;
 
 // ============ (2) Streak (디자인 SVG) ============
-const cal = (await gql(`query {
-  viewer { contributionsCollection { contributionCalendar {
-    totalContributions weeks { contributionDays { date contributionCount } } } } }
-}`)).viewer.contributionsCollection.contributionCalendar;
-const days = cal.weeks.flatMap((w) => w.contributionDays); // 오름차순
-const totalContrib = cal.totalContributions;
+// 가입연도부터 연도별로 기여 캘린더를 모아 누적(all-time)
+const createdYear = new Date(viewer.createdAt).getUTCFullYear();
+const nowYear = new Date().getUTCFullYear();
+const nowISO = new Date().toISOString();
+let days = [];
+for (let y = createdYear; y <= nowYear; y++) {
+  const from = `${y}-01-01T00:00:00Z`;
+  const to = y === nowYear ? nowISO : `${y}-12-31T23:59:59Z`;
+  const c = (await gql(
+    `query($from: DateTime!, $to: DateTime!) {
+      viewer { contributionsCollection(from: $from, to: $to) {
+        contributionCalendar { weeks { contributionDays { date contributionCount } } } } }
+    }`,
+    { from, to }
+  )).viewer.contributionsCollection.contributionCalendar;
+  days.push(...c.weeks.flatMap((w) => w.contributionDays));
+}
+days = [...new Map(days.map((d) => [d.date, d])).values()].sort((a, b) => a.date.localeCompare(b.date)); // 중복 제거·오름차순
+const totalContrib = days.reduce((s, d) => s + d.contributionCount, 0);
 const stats = {
   bestDay: days.reduce((m, d) => Math.max(m, d.contributionCount), 0),
   activeDays: days.filter((d) => d.contributionCount > 0).length,
