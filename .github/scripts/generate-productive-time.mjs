@@ -69,15 +69,21 @@ const makeBar = (percent, size = 20) => {
   const full = Math.round((percent / 100) * size);
   return "█".repeat(full) + "·".repeat(Math.max(0, size - full)); // · 가운데점 트랙 (U+00B7)
 };
-const ptLines = ptRows
-  .map((r, i) => {
-    const n = String(r.n).padStart(3);
-    const label = r.label.padEnd(7);
-    const pct = r.percent.toFixed(1).padStart(4);
-    return `${i + 1}     ${r.emoji}    ${label}     ${r.time}      ${n} commits      ${makeBar(r.percent)}    ${pct}%`;
+// 표(table)로 렌더: 라벨/커밋수/%는 본문 14px, 바(bar)만 <samp>(모노스페이스·배경없음)로 정렬 유지
+const ptRowsHtml = ptRows
+  .map((r) => {
+    const pct = r.percent.toFixed(1);
+    return `  <tr>
+    <td align="center">${r.emoji}</td>
+    <td><b>${r.label}</b></td>
+    <td>${r.time}</td>
+    <td align="right">${r.n} commits</td>
+    <td><samp>${makeBar(r.percent)}</samp></td>
+    <td align="right"><b>${pct}%</b></td>
+  </tr>`;
   })
   .join("\n");
-const ptBlock = `${PT_START}\n\n<pre>\n${ptLines}\n</pre>\n\n${PT_END}`;
+const ptBlock = `${PT_START}\n\n<table>\n${ptRowsHtml}\n</table>\n\n${PT_END}`;
 
 // ============ (2) Streak (디자인 SVG) ============
 // 가입연도부터 연도별로 기여 캘린더를 모아 누적(all-time)
