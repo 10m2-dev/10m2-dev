@@ -67,7 +67,7 @@ const ptRows = [
 ].map((r) => ({ ...r, percent: (r.n / total) * 100 }));
 const makeBar = (percent, size = 20) => {
   const full = Math.round((percent / 100) * size);
-  return "█".repeat(full) + "⋅".repeat(Math.max(0, size - full)); // ⋅ 작은 가운데점 트랙
+  return "█".repeat(full) + "·".repeat(Math.max(0, size - full)); // · 가운데점 트랙 (U+00B7)
 };
 const ptLines = ptRows
   .map((r, i) => {
