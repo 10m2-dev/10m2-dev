@@ -1,15 +1,17 @@
 // .github/scripts/generate-productive-time.mjs
-// 두 카드를 라이트/다크 SVG로 생성 (README는 <picture>로 참조):
-//   output/productive-{dark,light}.svg  — 시간별 커밋
-//   output/streak-{dark,light}.svg      — Streak
+// (1) 시간별 커밋: README 마커에 텍스트로 주입
+// (2) Streak: output/streak.svg 디자인 카드 생성 (README에서 <img>로 참조)
 // private 반영: "Include private contributions" 설정 + repo 스코프 PAT
 // - GH_TOKEN: repo 스코프 PAT / TIMEZONE: 예) Asia/Seoul
 // CI(GITHUB_ACTIONS)에서는 이 스크립트가 직접 커밋/푸시한다.
-import { writeFileSync, mkdirSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { execSync } from "node:child_process";
 
 const TOKEN = process.env.GH_TOKEN;
 const TZ = process.env.TIMEZONE || "Asia/Seoul";
+const README = "README.md";
+const PT_START = "<!-- PRODUCTIVE-TIME:START -->";
+const PT_END = "<!-- PRODUCTIVE-TIME:END -->";
 if (!TOKEN) {
   console.error("GH_TOKEN is required");
   process.exit(1);
@@ -27,7 +29,6 @@ async function gql(query, variables = {}) {
 }
 
 const { viewer } = await gql(`query { viewer { id login } }`);
-const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
 // ============ (1) 시간별 커밋 ============
 const buckets = { morning: 0, daytime: 0, evening: 0, night: 0 };
@@ -64,15 +65,29 @@ const ptRows = [
   { emoji: "🌆", label: "Evening", time: "18-24", n: buckets.evening },
   { emoji: "🌙", label: "Night",   time: "00-06", n: buckets.night },
 ].map((r) => ({ ...r, percent: (r.n / total) * 100 }));
+const makeBar = (percent, size = 20) => {
+  const full = Math.round((percent / 100) * size);
+  return "█".repeat(full) + "─".repeat(Math.max(0, size - full)); // ─ 연속 라인 트랙 (Windows OK)
+};
+const ptLines = ptRows
+  .map((r, i) => {
+    const n = String(r.n).padStart(3);
+    const label = r.label.padEnd(7);
+    const pct = r.percent.toFixed(1).padStart(4);
+    return `${i + 1}    ${r.emoji}   ${label}    ${r.time}     ${n} commits     ${makeBar(r.percent)}   ${pct}%`;
+  })
+  .join("\n");
+const ptBlock = `${PT_START}\n\n\`\`\`text\n${ptLines}\n\`\`\`\n\n${PT_END}`;
 
-// ============ (2) Streak ============
+// ============ (2) Streak (디자인 SVG) ============
 const cal = (await gql(`query {
   viewer { contributionsCollection { contributionCalendar {
     totalContributions weeks { contributionDays { date contributionCount } } } } }
 }`)).viewer.contributionsCollection.contributionCalendar;
-const days = cal.weeks.flatMap((w) => w.contributionDays);
+const days = cal.weeks.flatMap((w) => w.contributionDays); // 오름차순
 const totalContrib = cal.totalContributions;
 
+// 최장 연속 + 구간
 let longest = 0, run = 0, runStart = 0, lStart = 0, lEnd = 0;
 for (let i = 0; i < days.length; i++) {
   if (days[i].contributionCount > 0) {
@@ -81,54 +96,29 @@ for (let i = 0; i < days.length; i++) {
     if (run > longest) { longest = run; lStart = runStart; lEnd = i; }
   } else run = 0;
 }
+// 현재 연속 + 구간 (오늘 0이면 어제 기준)
 let endIdx = days.length - 1;
 if (days[endIdx].contributionCount === 0) endIdx--;
 let current = 0, cStart = endIdx + 1;
 for (let i = endIdx; i >= 0; i--) {
   if (days[i]?.contributionCount > 0) { current++; cStart = i; } else break;
 }
+
 const fFull = (iso) => { const [y, m, d] = iso.split("-"); return `${y}.${m}.${d}`; };
 const fMD = (iso) => { const [, m, d] = iso.split("-"); return `${m}.${d}`; };
 const totalRange = `${fFull(days[0].date)} – Now`;
-const currentRange = current === 0 ? "—" : current === 1 ? fFull(days[endIdx].date)
+const currentRange = current === 0 ? "—"
+  : current === 1 ? fFull(days[endIdx].date)
   : `${fMD(days[cStart].date)} – ${fMD(days[endIdx].date)}`;
-const longestRange = longest === 0 ? "—" : longest === 1 ? fFull(days[lStart].date)
+const longestRange = longest === 0 ? "—"
+  : longest === 1 ? fFull(days[lStart].date)
   : `${fMD(days[lStart].date)} – ${fMD(days[lEnd].date)}`;
 
-// ============ 테마 ============
-const T = {
-  dark:  { bg:"#1a1b27", border:"#29304d", div:"#29304d", num:"#c0caf5", accent:"#ff9e64",
-           rank:"#565f89", text:"#c0caf5", muted:"#7982a9", label:"#7aa2f7", track:"#29304d", fill:"#7aa2f7" },
-  light: { bg:"#ffffff", border:"#d0d7de", div:"#d0d7de", num:"#1f2328", accent:"#e8590c",
-           rank:"#8b949e", text:"#1f2328", muted:"#57606a", label:"#0969da", track:"#eaeef2", fill:"#0969da" },
-};
-
-// ============ 시간별 SVG ============
-const buildProd = (C) => {
-  const W = 580, pad = 16, rowH = 34, barX = 360, barW = 150, barH = 8;
-  const H = pad * 2 + ptRows.length * rowH;
-  const rows = ptRows.map((r, i) => {
-    const cyc = pad + rowH / 2 + i * rowH;
-    const b = cyc + 4;
-    const fillW = Math.max(0, Math.min(barW, (r.percent / 100) * barW));
-    return `
-  <text x="24" y="${b}" font-size="13" fill="${C.rank}">${i + 1}</text>
-  <text x="44" y="${b}" font-size="15">${r.emoji}</text>
-  <text x="70" y="${b}" font-size="14" fill="${C.text}">${esc(r.label)}</text>
-  <text x="160" y="${b}" font-size="12" fill="${C.label}" font-family="ui-monospace, monospace">${r.time}</text>
-  <text x="282" y="${b}" font-size="13" fill="${C.text}" text-anchor="end" font-family="ui-monospace, monospace">${r.n}</text>
-  <text x="288" y="${b}" font-size="12" fill="${C.muted}">commits</text>
-  <rect x="${barX}" y="${cyc - barH / 2}" width="${barW}" height="${barH}" rx="4" fill="${C.track}"/>
-  <rect x="${barX}" y="${cyc - barH / 2}" width="${fillW.toFixed(1)}" height="${barH}" rx="4" fill="${C.fill}"/>
-  <text x="${W - 24}" y="${b}" font-size="13" fill="${C.text}" text-anchor="end" font-family="ui-monospace, monospace">${r.percent.toFixed(1)}%</text>`;
-  }).join("");
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="'Segoe UI', Ubuntu, Helvetica, Arial, sans-serif">
-  <rect x="1" y="1" width="${W - 2}" height="${H - 2}" rx="12" fill="${C.bg}" stroke="${C.border}"/>${rows}
-</svg>`;
-};
-
-// ============ Streak SVG ============
 const W = 495, H = 165, cx = [82.5, 247.5, 412.5];
+const themes = {
+  dark:  { bg: "#1a1b27", border: "#29304d", div: "#29304d", num: "#c0caf5", label: "#7aa2f7", date: "#565f89", accent: "#ff9e64" },
+  light: { bg: "#ffffff", border: "#d0d7de", div: "#d0d7de", num: "#1f2328", label: "#0969da", date: "#57606a", accent: "#e8590c" },
+};
 const buildStreak = (C) => `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="'Segoe UI', Ubuntu, Helvetica, Arial, sans-serif">
   <rect x="1" y="1" width="${W - 2}" height="${H - 2}" rx="12" fill="${C.bg}" stroke="${C.border}"/>
   <line x1="165" y1="28" x2="165" y2="138" stroke="${C.div}"/>
@@ -150,13 +140,17 @@ const buildStreak = (C) => `<svg xmlns="http://www.w3.org/2000/svg" width="${W}"
 </svg>`;
 
 // ============ 출력 ============
+let readme = readFileSync(README, "utf8");
+const re = new RegExp(`${PT_START}[\\s\\S]*?${PT_END}`);
+if (!re.test(readme)) { console.error("PT markers not found"); process.exit(1); }
+readme = readme.replace(re, ptBlock);
+writeFileSync(README, readme);
 mkdirSync("output", { recursive: true });
-writeFileSync("output/productive-dark.svg", buildProd(T.dark));
-writeFileSync("output/productive-light.svg", buildProd(T.light));
-writeFileSync("output/streak-dark.svg", buildStreak(T.dark));
-writeFileSync("output/streak-light.svg", buildStreak(T.light));
-console.log("wrote 4 svgs", { buckets, total, current, longest, totalContrib });
+writeFileSync("output/streak-dark.svg", buildStreak(themes.dark));
+writeFileSync("output/streak-light.svg", buildStreak(themes.light));
+console.log("updated", { buckets, total, current, longest, totalContrib, currentRange, longestRange });
 
+// CI: 직접 커밋/푸시
 if (process.env.GITHUB_ACTIONS) {
   execSync('git config user.name "github-actions[bot]"');
   execSync('git config user.email "41898282+github-actions[bot]@users.noreply.github.com"');
