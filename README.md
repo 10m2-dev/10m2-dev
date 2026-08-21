@@ -91,17 +91,25 @@
 <!-- PRODUCTIVE-TIME:START -->
 
 ```text
-1    🌅   Morning    06-12      84 commits     █████                              17.4%
-2    🌞   Daytime    12-18     194 commits     ████████████                       40.2%
-3    🌆   Evening    18-24      97 commits     ██████                             20.1%
-4    🌙   Night      00-06     108 commits     ███████                            22.4%
+1    🌅   Morning    06-12      84 commits     17.4%   ████
+2    🌞   Daytime    12-18     195 commits     40.3%   ██████████
+3    🌆   Evening    18-24      97 commits     20.0%   █████
+4    🌙   Night      00-06     108 commits     22.3%   ██████
 ```
 
 <!-- PRODUCTIVE-TIME:END -->
 
 <br/>
 
-<!-- ===================== CONTRIBUTION GRAPH ===================== -->
-<h3 align="left">📈 Contribution Graph</h3>
+<!-- ===================== STREAK (text, auto-updated) ===================== -->
+<h3 align="left">🔥 Commit Streak</h3>
 
-<img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=10m2-dev&theme=tokyo-night&bg_color=00000000&hide_border=true&area=true" />
+<!-- STREAK:START -->
+
+```text
+Current Streak 1 days
+Longest Streak 122 days
+Contributions  538 total
+```
+
+<!-- STREAK:END -->

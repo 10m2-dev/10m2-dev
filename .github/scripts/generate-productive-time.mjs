@@ -1,8 +1,7 @@
 // .github/scripts/generate-productive-time.mjs
-// 커밋 시각을 Morning/Daytime/Evening/Night 4구간으로 집계해
-// README.md 의 마커(<!-- PRODUCTIVE-TIME:START/END -->) 사이에 텍스트 코드블록으로 써넣는다.
-// 제목은 README의 <h3>가 담당한다.
-// - GH_TOKEN: repo 스코프 PAT (private 레포 커밋을 직접 읽기 위함)
+// README.md 의 마커 사이에 (1) 시간별 커밋 카드, (2) Streak 카드를 텍스트로 써넣는다.
+// 제목은 README의 <h3>가 담당. private 반영은 "Include private contributions" 설정 + repo 스코프 PAT.
+// - GH_TOKEN: repo 스코프 PAT
 // - TIMEZONE: 예) Asia/Seoul
 // CI(GITHUB_ACTIONS)에서는 이 스크립트가 직접 README.md를 커밋/푸시한다.
 import { readFileSync, writeFileSync } from "node:fs";
@@ -11,8 +10,10 @@ import { execSync } from "node:child_process";
 const TOKEN = process.env.GH_TOKEN;
 const TZ = process.env.TIMEZONE || "Asia/Seoul";
 const README = "README.md";
-const START = "<!-- PRODUCTIVE-TIME:START -->";
-const END = "<!-- PRODUCTIVE-TIME:END -->";
+const PT_START = "<!-- PRODUCTIVE-TIME:START -->";
+const PT_END = "<!-- PRODUCTIVE-TIME:END -->";
+const S_START = "<!-- STREAK:START -->";
+const S_END = "<!-- STREAK:END -->";
 if (!TOKEN) {
   console.error("GH_TOKEN is required");
   process.exit(1);
@@ -34,6 +35,7 @@ async function gql(query, variables = {}) {
 
 const { viewer } = await gql(`query { viewer { id login } }`);
 
+// ============ (1) 시간별 커밋 ============
 const buckets = { morning: 0, daytime: 0, evening: 0, night: 0 };
 const hourFmt = new Intl.DateTimeFormat("en-GB", {
   timeZone: TZ,
@@ -83,41 +85,80 @@ do {
 } while (after && ++pages < 4);
 
 const total = Object.values(buckets).reduce((a, b) => a + b, 0) || 1;
-
-// 단일 코드포인트 이모지(변형 선택자 없음) → 폭 일정 → 정렬됨
-const rows = [
+const ptRows = [
   { emoji: "🌅", label: "Morning", time: "06-12", n: buckets.morning },
   { emoji: "🌞", label: "Daytime", time: "12-18", n: buckets.daytime },
   { emoji: "🌆", label: "Evening", time: "18-24", n: buckets.evening },
   { emoji: "🌙", label: "Night",   time: "00-06", n: buckets.night },
 ].map((r) => ({ ...r, percent: (r.n / total) * 100 }));
 
-// 막대: 폭이 일정한 █ 하나로만(빈 칸은 공백) → Windows에서도 안 깨지고 정렬됨
-function makeBar(percent, size = 30) {
-  const full = Math.round((percent / 100) * size);
-  return "█".repeat(full) + " ".repeat(Math.max(0, size - full));
-}
+// 막대: █ 하나로만(맨 끝, 패딩 없음) → Windows에서도 안 깨짐
+const makeBar = (percent, size = 25) => "█".repeat(Math.round((percent / 100) * size));
 
-const lines = rows
+const ptLines = ptRows
   .map((r, i) => {
     const n = String(r.n).padStart(3);
     const label = r.label.padEnd(7);
     const pct = r.percent.toFixed(1).padStart(4);
-    return `${i + 1}    ${r.emoji}   ${label}    ${r.time}     ${n} commits     ${makeBar(r.percent)}     ${pct}%`;
+    return `${i + 1}    ${r.emoji}   ${label}    ${r.time}     ${n} commits     ${pct}%   ${makeBar(r.percent)}`;
   })
   .join("\n");
+const ptBlock = `${PT_START}\n\n\`\`\`text\n${ptLines}\n\`\`\`\n\n${PT_END}`;
 
-const block = `${START}\n\n\`\`\`text\n${lines}\n\`\`\`\n\n${END}`;
+// ============ (2) Streak ============
+const cal = await gql(`query {
+  viewer {
+    contributionsCollection {
+      contributionCalendar {
+        totalContributions
+        weeks { contributionDays { date contributionCount } }
+      }
+    }
+  }
+}`);
+const calObj = cal.viewer.contributionsCollection.contributionCalendar;
+const days = calObj.weeks.flatMap((w) => w.contributionDays); // 날짜 오름차순
+const totalContrib = calObj.totalContributions;
 
-let readme = readFileSync(README, "utf8");
-const re = new RegExp(`${START}[\\s\\S]*?${END}`);
-if (!re.test(readme)) {
-  console.error("markers not found in README.md");
-  process.exit(1);
+let longest = 0;
+let run = 0;
+for (const d of days) {
+  if (d.contributionCount > 0) {
+    run++;
+    if (run > longest) longest = run;
+  } else {
+    run = 0;
+  }
 }
-readme = readme.replace(re, block);
+let current = 0;
+for (let i = days.length - 1; i >= 0; i--) {
+  if (days[i].contributionCount > 0) current++;
+  else if (i === days.length - 1) continue; // 오늘은 아직 0이어도 어제까지의 연속 유지
+  else break;
+}
+
+const sRows = [
+  { label: "Current Streak", val: `${current} days` },
+  { label: "Longest Streak", val: `${longest} days` },
+  { label: "Contributions", val: `${totalContrib} total` },
+];
+const sLines = sRows.map((x) => `${x.label.padEnd(15)}${x.val}`).join("\n");
+const sBlock = `${S_START}\n\n\`\`\`text\n${sLines}\n\`\`\`\n\n${S_END}`;
+
+// ============ 주입 ============
+let readme = readFileSync(README, "utf8");
+const inject = (text, start, end, block) => {
+  const re = new RegExp(`${start}[\\s\\S]*?${end}`);
+  if (!re.test(text)) {
+    console.error(`markers not found: ${start}`);
+    process.exit(1);
+  }
+  return text.replace(re, block);
+};
+readme = inject(readme, PT_START, PT_END, ptBlock);
+readme = inject(readme, S_START, S_END, sBlock);
 writeFileSync(README, readme);
-console.log("README updated", buckets, "total:", total);
+console.log("README updated", { buckets, total, current, longest, totalContrib });
 
 // CI: 직접 커밋/푸시 (워크플로 파일은 건드리지 않음)
 if (process.env.GITHUB_ACTIONS) {
@@ -125,7 +166,7 @@ if (process.env.GITHUB_ACTIONS) {
   execSync('git config user.email "41898282+github-actions[bot]@users.noreply.github.com"');
   execSync(`git add ${README}`);
   try {
-    execSync('git commit -m "chore: update productive-time"', { stdio: "inherit" });
+    execSync('git commit -m "chore: update profile cards"', { stdio: "inherit" });
     execSync("git push", { stdio: "inherit" });
   } catch {
     console.log("nothing to commit");
