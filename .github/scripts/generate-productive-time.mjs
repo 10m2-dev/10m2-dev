@@ -67,14 +67,14 @@ const ptRows = [
 ].map((r) => ({ ...r, percent: (r.n / total) * 100 }));
 const makeBar = (percent, size = 20) => {
   const full = Math.round((percent / 100) * size);
-  return "█".repeat(full) + "─".repeat(Math.max(0, size - full)); // ─ 연속 라인 트랙 (Windows OK)
+  return "█".repeat(full) + "⋅".repeat(Math.max(0, size - full)); // ⋅ 작은 가운데점 트랙
 };
 const ptLines = ptRows
   .map((r, i) => {
     const n = String(r.n).padStart(3);
     const label = r.label.padEnd(7);
     const pct = r.percent.toFixed(1).padStart(4);
-    return `${i + 1}    ${r.emoji}   ${label}    ${r.time}     ${n} commits     ${makeBar(r.percent)}   ${pct}%`;
+    return `${i + 1}     ${r.emoji}    ${label}     ${r.time}      ${n} commits      ${makeBar(r.percent)}    ${pct}%`;
   })
   .join("\n");
 const ptBlock = `${PT_START}\n\n\`\`\`text\n${ptLines}\n\`\`\`\n\n${PT_END}`;
