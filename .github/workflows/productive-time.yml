@@ -1,0 +1,27 @@
+name: productive-time
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Generate productive-time card
+        run: node .github/scripts/generate-productive-time.mjs
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          TIMEZONE: Asia/Seoul
+      - name: Commit & push
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add output/productive-time.svg
+          git commit -m "chore: update productive-time card" || echo "no changes"
+          git push

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="156" viewBox="0 0 600 156">
+  <defs>
+    <pattern id="dots" width="4" height="4" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.7" fill="#afb8c1"/>
+    </pattern>
+  </defs>
+  <rect x="1" y="1" width="598" height="154" rx="10" fill="#ffffff" stroke="#d0d7de"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14">
+    <text x="26" y="38" fill="#8b949e">1</text>
+    <text x="48" y="38" fill="#1f2328">🌞 Morning</text>
+    <text x="250" y="38" fill="#1f2328" text-anchor="end">90</text>
+    <text x="258" y="38" fill="#1f2328">commits</text>
+    <rect x="338" y="26.5" width="190" height="13" rx="3" fill="url(#dots)"/>
+    <rect x="338" y="26.5" width="34.8" height="13" rx="3" fill="#24292f"/>
+    <text x="576" y="38" fill="#1f2328" text-anchor="end">18.3%</text>
+    <text x="26" y="68" fill="#8b949e">2</text>
+    <text x="48" y="68" fill="#1f2328">🏙️ Daytime</text>
+    <text x="250" y="68" fill="#1f2328" text-anchor="end">197</text>
+    <text x="258" y="68" fill="#1f2328">commits</text>
+    <rect x="338" y="56.5" width="190" height="13" rx="3" fill="url(#dots)"/>
+    <rect x="338" y="56.5" width="76.1" height="13" rx="3" fill="#24292f"/>
+    <text x="576" y="68" fill="#1f2328" text-anchor="end">40.0%</text>
+    <text x="26" y="98" fill="#8b949e">3</text>
+    <text x="48" y="98" fill="#1f2328">🌆 Evening</text>
+    <text x="250" y="98" fill="#1f2328" text-anchor="end">97</text>
+    <text x="258" y="98" fill="#1f2328">commits</text>
+    <rect x="338" y="86.5" width="190" height="13" rx="3" fill="url(#dots)"/>
+    <rect x="338" y="86.5" width="37.5" height="13" rx="3" fill="#24292f"/>
+    <text x="576" y="98" fill="#1f2328" text-anchor="end">19.7%</text>
+    <text x="26" y="128" fill="#8b949e">4</text>
+    <text x="48" y="128" fill="#1f2328">🌙 Night</text>
+    <text x="250" y="128" fill="#1f2328" text-anchor="end">108</text>
+    <text x="258" y="128" fill="#1f2328">commits</text>
+    <rect x="338" y="116.5" width="190" height="13" rx="3" fill="url(#dots)"/>
+    <rect x="338" y="116.5" width="41.7" height="13" rx="3" fill="#24292f"/>
+    <text x="576" y="128" fill="#1f2328" text-anchor="end">22.0%</text>
+  </g>
+</svg>
