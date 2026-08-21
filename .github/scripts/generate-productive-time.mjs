@@ -103,7 +103,7 @@ const lines = rows
     const n = String(r.n).padStart(3);
     const label = r.label.padEnd(7);
     const pct = r.percent.toFixed(1).padStart(4);
-    return `${i + 1}  ${r.emoji} ${label} ${r.time}  ${n} commits  ${makeBar(r.percent)}  ${pct}%`;
+    return `${i + 1}    ${r.emoji}   ${label}    ${r.time}     ${n} commits     ${makeBar(r.percent)}     ${pct}%`;
   })
   .join("\n");
 

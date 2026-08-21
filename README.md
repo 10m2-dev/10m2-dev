@@ -1,7 +1,7 @@
 <!-- ===================== TYPING ===================== -->
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1000&color=36BCF7&center=true&vCenter=true&width=520&lines=Hi+there!+I'm+10m2-dev+%F0%9F%91%8B;Full-Stack+Developer+with+11+years;Always+learning+new+things+%E2%9C%A8" alt="typing" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1000&color=36BCF7&center=true&vCenter=true&width=520&lines=Hi+there!+I'm+10m2-dev+%F0%9F%91%8B;Full-Stack+Developer+with+14+years;Always+learning+new+things+%E2%9C%A8" alt="typing" />
 
 </div>
 
@@ -91,10 +91,10 @@
 <!-- PRODUCTIVE-TIME:START -->
 
 ```text
-1  🌅 Morning 06-12   84 commits  █████                           17.4%
-2  🌞 Daytime 12-18  193 commits  ████████████                    40.0%
-3  🌆 Evening 18-24   97 commits  ██████                          20.1%
-4  🌙 Night   00-06  108 commits  ███████                         22.4%
+1    🌅   Morning    06-12      84 commits     █████                              17.4%
+2    🌞   Daytime    12-18     194 commits     ████████████                       40.2%
+3    🌆   Evening    18-24      97 commits     ██████                             20.1%
+4    🌙   Night      00-06     108 commits     ███████                            22.4%
 ```
 
 <!-- PRODUCTIVE-TIME:END -->
