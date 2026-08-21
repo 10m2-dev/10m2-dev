@@ -77,11 +77,32 @@
 <!-- ===================== PROJECTS ===================== -->
 <h3 align="left">🚀 10m2's Products</h3>
 
-| Date | Project | Description | Links |
-|:-:|:-|:-|:-:|
-| <sub>2026</sub> | **🧑‍💻 Vibe101** | Learn-by-building "vibe coding" platform (KO/EN) | [🔗](https://vibe101.dev) |
-| <sub>2026</sub> | **🏠 Ondol** | Rent/Jeonse verification & scam-risk check for foreigners in Korea | [🔗](https://ondolkorea.com) |
-| <sub>2025</sub> | **⚖️ BriefAuction** | Nationwide court real-estate auction data — search, monthly stats & guides | [🔗](https://briefauction.com) |
+<table width="100%">
+  <tr>
+    <th>Date</th>
+    <th align="left">Project</th>
+    <th align="left">Description</th>
+    <th>Links</th>
+  </tr>
+  <tr>
+    <td align="center"><sub>2026</sub></td>
+    <td><b>🧑‍💻 Vibe101</b></td>
+    <td>Learn-by-building "vibe coding" platform (KO/EN)</td>
+    <td align="center"><a href="https://vibe101.dev">🔗</a></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>2026</sub></td>
+    <td><b>🏠 Ondol</b></td>
+    <td>Rent/Jeonse verification &amp; scam-risk check for foreigners in Korea</td>
+    <td align="center"><a href="https://ondolkorea.com">🔗</a></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>2025</sub></td>
+    <td><b>⚖️ BriefAuction</b></td>
+    <td>Nationwide court real-estate auction data — search, monthly stats &amp; guides</td>
+    <td align="center"><a href="https://briefauction.com">🔗</a></td>
+  </tr>
+</table>
 
 <br/>
 
