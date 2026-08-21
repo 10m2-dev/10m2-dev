@@ -91,10 +91,10 @@
 <!-- PRODUCTIVE-TIME:START -->
 
 ```text
-1    🌅   Morning    06-12      84 commits     17.3%   ████
-2    🌞   Daytime    12-18     196 commits     40.4%   ██████████
-3    🌆   Evening    18-24      97 commits     20.0%   █████
-4    🌙   Night      00-06     108 commits     22.3%   ██████
+1    🌅   Morning    06-12      84 commits     ████   17.3%
+2    🌞   Daytime    12-18     197 commits     ██████████   40.5%
+3    🌆   Evening    18-24      97 commits     █████   20.0%
+4    🌙   Night      00-06     108 commits     ██████   22.2%
 ```
 
 <!-- PRODUCTIVE-TIME:END -->
