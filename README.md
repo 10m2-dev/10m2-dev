@@ -81,8 +81,8 @@
 <table width="100%">
   <tr>
     <th align="center">Date</th>
-    <th align="center" width="150">Project</th>
-    <th align="center" width="580">Description</th>
+    <th align="center" width="210">Project</th>
+    <th align="center" width="520">Description</th>
     <th align="center">Links</th>
   </tr>
   <tr valign="middle">
@@ -112,12 +112,11 @@
 
 <!-- PRODUCTIVE-TIME:START -->
 
-<pre>
-1     🌅    Morning     06-12       84 commits      ███·················    16.6%
-2     🌞    Daytime     12-18      216 commits      █████████···········    42.8%
-3     🌆    Evening     18-24       97 commits      ████················    19.2%
-4     🌙    Night       00-06      108 commits      ████················    21.4%
-</pre>
+<picture>
+  <source media="(prefers-color-scheme: dark)"  srcset="./output/productive-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./output/productive-light.svg">
+  <img src="./output/productive-dark.svg" alt="when am I most active" />
+</picture>
 
 <!-- PRODUCTIVE-TIME:END -->
 

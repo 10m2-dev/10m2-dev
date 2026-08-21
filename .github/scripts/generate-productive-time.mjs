@@ -65,20 +65,8 @@ const ptRows = [
   { emoji: "🌆", label: "Evening", time: "18-24", n: buckets.evening },
   { emoji: "🌙", label: "Night",   time: "00-06", n: buckets.night },
 ].map((r) => ({ ...r, percent: (r.n / total) * 100 }));
-const makeBar = (percent, size = 20) => {
-  const full = Math.round((percent / 100) * size);
-  return "█".repeat(full) + "·".repeat(Math.max(0, size - full)); // · 가운데점 트랙 (U+00B7)
-};
-// 박스형 <pre>로 렌더(헤더 없음·겉테두리만·내부 줄 없음). 숫자 뒤에 "commits".
-const ptLines = ptRows
-  .map((r, i) => {
-    const n = String(r.n).padStart(3);
-    const label = r.label.padEnd(7);
-    const pct = r.percent.toFixed(1).padStart(4);
-    return `${i + 1}     ${r.emoji}    ${label}     ${r.time}      ${n} commits      ${makeBar(r.percent)}    ${pct}%`;
-  })
-  .join("\n");
-const ptBlock = `${PT_START}\n\n<pre>\n${ptLines}\n</pre>\n\n${PT_END}`;
+// 시간대별 활동 = SVG 박스 카드(Streak과 동일 톤·14px). README는 <picture>로 라이트/다크 참조.
+const ptBlock = `${PT_START}\n\n<picture>\n  <source media="(prefers-color-scheme: dark)"  srcset="./output/productive-dark.svg">\n  <source media="(prefers-color-scheme: light)" srcset="./output/productive-light.svg">\n  <img src="./output/productive-dark.svg" alt="when am I most active" />\n</picture>\n\n${PT_END}`;
 
 // ============ (2) Streak (디자인 SVG) ============
 // 가입연도부터 연도별로 기여 캘린더를 모아 누적(all-time)
@@ -135,8 +123,8 @@ const longestRange = longest === 0 ? "—"
 
 const W = 846, H = 165, cx = [70.5, 211.5, 352.5, 493.5, 634.5, 775.5];
 const themes = {
-  dark:  { bg: "#1a1b27", border: "#29304d", div: "#29304d", num: "#c0caf5", label: "#7aa2f7", date: "#565f89", accent: "#ff9e64" },
-  light: { bg: "#ffffff", border: "#d0d7de", div: "#d0d7de", num: "#1f2328", label: "#0969da", date: "#57606a", accent: "#e8590c" },
+  dark:  { bg: "#1a1b27", border: "#29304d", div: "#29304d", num: "#c0caf5", label: "#7aa2f7", date: "#565f89", accent: "#ff9e64", track: "#2a3152" },
+  light: { bg: "#ffffff", border: "#d0d7de", div: "#d0d7de", num: "#1f2328", label: "#0969da", date: "#57606a", accent: "#e8590c", track: "#eaeef2" },
 };
 const buildStreak = (C) => `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="'Segoe UI', Ubuntu, Helvetica, Arial, sans-serif">
   <rect x="1" y="1" width="${W - 2}" height="${H - 2}" rx="12" fill="${C.bg}" stroke="${C.border}"/>
@@ -170,6 +158,27 @@ const buildStreak = (C) => `<svg xmlns="http://www.w3.org/2000/svg" width="${W}"
   <text x="${cx[5]}" y="100" text-anchor="middle" font-size="12" fill="${C.label}">Avg / Day</text>
 </svg>`;
 
+// 시간대별 활동 SVG 박스 카드(14px, Streak과 동일 톤). 바 = 트랙 rect + 채움 rect.
+const buildProductive = (C) => {
+  const barX = 402, barW = 300, barH = 12, row0 = 46, rowH = 38;
+  const PH = row0 * 2 + (ptRows.length - 1) * rowH; // 206
+  const rows = ptRows.map((r, i) => {
+    const cy = row0 + i * rowH;
+    const fillW = Math.max(4, (barW * r.percent) / 100).toFixed(1);
+    return `
+  <text x="46" y="${cy + 6}" text-anchor="middle" font-size="17">${r.emoji}</text>
+  <text x="74" y="${cy + 5}" font-size="14" font-weight="600" fill="${C.num}">${r.label}</text>
+  <text x="184" y="${cy + 5}" font-size="13" fill="${C.date}">${r.time}</text>
+  <text x="374" y="${cy + 5}" text-anchor="end" font-size="13" fill="${C.num}">${r.n} commits</text>
+  <rect x="${barX}" y="${cy - barH / 2}" width="${barW}" height="${barH}" rx="6" fill="${C.track}"/>
+  <rect x="${barX}" y="${cy - barH / 2}" width="${fillW}" height="${barH}" rx="6" fill="${C.accent}"/>
+  <text x="806" y="${cy + 5}" text-anchor="end" font-size="14" font-weight="700" fill="${C.accent}">${r.percent.toFixed(1)}%</text>`;
+  }).join("");
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="846" height="${PH}" viewBox="0 0 846 ${PH}" font-family="'Segoe UI', Ubuntu, Helvetica, Arial, sans-serif">
+  <rect x="1" y="1" width="844" height="${PH - 2}" rx="12" fill="${C.bg}" stroke="${C.border}"/>${rows}
+</svg>`;
+};
+
 // ============ 출력 ============
 let readme = readFileSync(README, "utf8");
 const re = new RegExp(`${PT_START}[\\s\\S]*?${PT_END}`);
@@ -179,6 +188,8 @@ writeFileSync(README, readme);
 mkdirSync("output", { recursive: true });
 writeFileSync("output/streak-dark.svg", buildStreak(themes.dark));
 writeFileSync("output/streak-light.svg", buildStreak(themes.light));
+writeFileSync("output/productive-dark.svg", buildProductive(themes.dark));
+writeFileSync("output/productive-light.svg", buildProductive(themes.light));
 console.log("updated", { buckets, total, current, longest, totalContrib, currentRange, longestRange });
 
 // CI: 직접 커밋/푸시

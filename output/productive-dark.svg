@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="846" height="206" viewBox="0 0 846 206" font-family="'Segoe UI', Ubuntu, Helvetica, Arial, sans-serif">
+  <rect x="1" y="1" width="844" height="204" rx="12" fill="#1a1b27" stroke="#29304d"/>
+  <text x="46" y="52" text-anchor="middle" font-size="17">🌅</text>
+  <text x="74" y="51" font-size="14" font-weight="600" fill="#c0caf5">Morning</text>
+  <text x="184" y="51" font-size="13" fill="#565f89">06-12</text>
+  <text x="374" y="51" text-anchor="end" font-size="13" fill="#c0caf5">84 commits</text>
+  <rect x="402" y="40" width="300" height="12" rx="6" fill="#2a3152"/>
+  <rect x="402" y="40" width="49.8" height="12" rx="6" fill="#ff9e64"/>
+  <text x="806" y="51" text-anchor="end" font-size="14" font-weight="700" fill="#ff9e64">16.6%</text>
+  <text x="46" y="90" text-anchor="middle" font-size="17">🌞</text>
+  <text x="74" y="89" font-size="14" font-weight="600" fill="#c0caf5">Daytime</text>
+  <text x="184" y="89" font-size="13" fill="#565f89">12-18</text>
+  <text x="374" y="89" text-anchor="end" font-size="13" fill="#c0caf5">216 commits</text>
+  <rect x="402" y="78" width="300" height="12" rx="6" fill="#2a3152"/>
+  <rect x="402" y="78" width="128.4" height="12" rx="6" fill="#ff9e64"/>
+  <text x="806" y="89" text-anchor="end" font-size="14" font-weight="700" fill="#ff9e64">42.8%</text>
+  <text x="46" y="128" text-anchor="middle" font-size="17">🌆</text>
+  <text x="74" y="127" font-size="14" font-weight="600" fill="#c0caf5">Evening</text>
+  <text x="184" y="127" font-size="13" fill="#565f89">18-24</text>
+  <text x="374" y="127" text-anchor="end" font-size="13" fill="#c0caf5">97 commits</text>
+  <rect x="402" y="116" width="300" height="12" rx="6" fill="#2a3152"/>
+  <rect x="402" y="116" width="57.6" height="12" rx="6" fill="#ff9e64"/>
+  <text x="806" y="127" text-anchor="end" font-size="14" font-weight="700" fill="#ff9e64">19.2%</text>
+  <text x="46" y="166" text-anchor="middle" font-size="17">🌙</text>
+  <text x="74" y="165" font-size="14" font-weight="600" fill="#c0caf5">Night</text>
+  <text x="184" y="165" font-size="13" fill="#565f89">00-06</text>
+  <text x="374" y="165" text-anchor="end" font-size="13" fill="#c0caf5">108 commits</text>
+  <rect x="402" y="154" width="300" height="12" rx="6" fill="#2a3152"/>
+  <rect x="402" y="154" width="64.2" height="12" rx="6" fill="#ff9e64"/>
+  <text x="806" y="165" text-anchor="end" font-size="14" font-weight="700" fill="#ff9e64">21.4%</text>
+</svg>
