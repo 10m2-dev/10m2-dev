@@ -79,9 +79,9 @@
 
 | Date | Project | Description | Links |
 |:-:|:-|:-|:-:|
-| <sub>2025</sub> | **⚖️ BriefAuction** | Nationwide court real-estate auction data — search, monthly stats & guides | [🔗](https://briefauction.com) |
-| <sub>2026</sub> | **🏠 Ondol** | Rent/Jeonse verification & scam-risk check for foreigners in Korea | [🔗](https://ondolkorea.com) |
 | <sub>2026</sub> | **🧑‍💻 Vibe101** | Learn-by-building "vibe coding" platform (KO/EN) | [🔗](https://vibe101.dev) |
+| <sub>2026</sub> | **🏠 Ondol** | Rent/Jeonse verification & scam-risk check for foreigners in Korea | [🔗](https://ondolkorea.com) |
+| <sub>2025</sub> | **⚖️ BriefAuction** | Nationwide court real-estate auction data — search, monthly stats & guides | [🔗](https://briefauction.com) |
 
 <br/>
 
@@ -91,10 +91,10 @@
 <!-- PRODUCTIVE-TIME:START -->
 
 ```text
-1    🌅   Morning    06-12      84 commits     ███·················   17.2%
-2    🌞   Daytime    12-18     199 commits     ████████············   40.8%
-3    🌆   Evening    18-24      97 commits     ████················   19.9%
-4    🌙   Night      00-06     108 commits     ████················   22.1%
+1    🌅   Morning    06-12      84 commits     ███░░░░░░░░░░░░░░░░░   17.2%
+2    🌞   Daytime    12-18     200 commits     ████████░░░░░░░░░░░░   40.9%
+3    🌆   Evening    18-24      97 commits     ████░░░░░░░░░░░░░░░░   19.8%
+4    🌙   Night      00-06     108 commits     ████░░░░░░░░░░░░░░░░   22.1%
 ```
 
 <!-- PRODUCTIVE-TIME:END -->
