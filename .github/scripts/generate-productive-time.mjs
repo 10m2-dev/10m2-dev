@@ -65,11 +65,15 @@ const ptRows = [
   { emoji: "🌆", label: "Evening", time: "18-24", n: buckets.evening },
   { emoji: "🌙", label: "Night",   time: "00-06", n: buckets.night },
 ].map((r) => ({ ...r, percent: (r.n / total) * 100 }));
-const makeBar = (percent, size = 20) => {
-  const full = Math.round((percent / 100) * size);
-  return "█".repeat(full) + "·".repeat(Math.max(0, size - full)); // · 가운데점 트랙 (U+00B7)
+// 표 셀은 14px 일반폰트. 그 폰트에서 █/·의 글자폭(px)을 기준으로, 채움(█)+트랙(·)이
+// 항상 BAR_PX(px)에 꽉 차도록 계산 → fill·track·텍스트 모두 14px로 폰트 크기가 균일해진다.
+const BLOCK_PX = 9.92, DOT_PX = 3.04, BAR_PX = 350;
+const makeBar = (percent) => {
+  const b = Math.max(1, Math.round((percent / 100) * BAR_PX / BLOCK_PX));
+  const dots = Math.max(0, Math.round((BAR_PX - b * BLOCK_PX) / DOT_PX));
+  return "█".repeat(b) + "·".repeat(dots);
 };
-// 표(table)로 렌더: 라벨/커밋수/%는 본문 14px, 바(bar)만 <samp>(모노스페이스·배경없음)로 정렬 유지
+// 표(table)로 렌더: Products 표와 동일한 헤더 구조·풀폭(846). 모든 셀 본문 14px로 폰트 통일.
 const ptRowsHtml = ptRows
   .map((r) => {
     const pct = r.percent.toFixed(1);
@@ -77,13 +81,21 @@ const ptRowsHtml = ptRows
     <td align="center">${r.emoji}</td>
     <td><b>${r.label}</b></td>
     <td>${r.time}</td>
-    <td align="right">${r.n} commits</td>
-    <td><samp>${makeBar(r.percent)}</samp></td>
+    <td align="right">${r.n}</td>
+    <td>${makeBar(r.percent)}</td>
     <td align="right"><b>${pct}%</b></td>
   </tr>`;
   })
   .join("\n");
-const ptBlock = `${PT_START}\n\n<table>\n${ptRowsHtml}\n</table>\n\n${PT_END}`;
+const ptHeader = `  <tr>
+    <th></th>
+    <th align="left">Period<img src="./output/spacer.svg" width="60" height="1" alt=""></th>
+    <th align="left">Hours<img src="./output/spacer.svg" width="45" height="1" alt=""></th>
+    <th align="right">Commits<img src="./output/spacer.svg" width="30" height="1" alt=""></th>
+    <th align="left">Activity</th>
+    <th align="right">Share</th>
+  </tr>`;
+const ptBlock = `${PT_START}\n\n<table>\n${ptHeader}\n${ptRowsHtml}\n</table>\n\n${PT_END}`;
 
 // ============ (2) Streak (디자인 SVG) ============
 // 가입연도부터 연도별로 기여 캘린더를 모아 누적(all-time)
