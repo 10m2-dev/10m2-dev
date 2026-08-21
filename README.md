@@ -1,7 +1,7 @@
 <!-- ===================== TYPING ===================== -->
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1000&color=36BCF7&center=true&vCenter=true&width=520&lines=Hi+there!+I'm+10m2-dev+%F0%9F%91%8B;Full-Stack+Developer+with+14+years;Always+learning+new+things+%E2%9C%A8" alt="typing" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1000&color=1F6FEB&center=true&vCenter=true&width=520&lines=Hi+there!+I'm+10m2-dev+%F0%9F%91%8B;Full-Stack+Developer+with+14+years;Always+learning+new+things+%E2%9C%A8" alt="typing" />
 
 </div>
 
