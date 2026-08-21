@@ -65,7 +65,10 @@ const ptRows = [
   { emoji: "🌆", label: "Evening", time: "18-24", n: buckets.evening },
   { emoji: "🌙", label: "Night",   time: "00-06", n: buckets.night },
 ].map((r) => ({ ...r, percent: (r.n / total) * 100 }));
-const makeBar = (percent, size = 25) => "█".repeat(Math.round((percent / 100) * size));
+const makeBar = (percent, size = 20) => {
+  const full = Math.round((percent / 100) * size);
+  return "█".repeat(full) + "·".repeat(Math.max(0, size - full)); // · = Windows-safe 트랙
+};
 const ptLines = ptRows
   .map((r, i) => {
     const n = String(r.n).padStart(3);
