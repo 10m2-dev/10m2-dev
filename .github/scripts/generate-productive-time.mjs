@@ -125,8 +125,8 @@ const W = 846, H = 165, cx = [70.5, 211.5, 352.5, 493.5, 634.5, 775.5];
 const MONO = "ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace";
 const SHX = 8, SHY = 8; // 브루탈리즘 하드 오프셋 그림자
 const themes = {
-  dark:  { bg: "#161b22", border: "#ffffff", shadow: "#ffffff", ink: "#ffffff", num: "#ffffff", label: "#ffffff", date: "#8b949e", accent: "#39d353", track: "#30363d" },
-  light: { bg: "#ffffff", border: "#000000", shadow: "#000000", ink: "#000000", num: "#000000", label: "#000000", date: "#57606a", accent: "#1a7f37", track: "#d0d0d0" },
+  dark:  { bg: "#161b22", border: "#c9d1d9", shadow: "#30363d", ink: "#c9d1d9", num: "#c9d1d9", label: "#8b949e", date: "#6e7681", accent: "#39d353", track: "#30363d", chipBg: "#21262d", chipFg: "#c9d1d9", chipBorder: "#444c56", bannerFg: "#ffffff" },
+  light: { bg: "#ffffff", border: "#000000", shadow: "#000000", ink: "#000000", num: "#000000", label: "#000000", date: "#57606a", accent: "#1a7f37", track: "#d0d0d0", chipBg: "#000000", chipFg: "#ffffff", chipBorder: "#000000", bannerFg: "#000000" },
 };
 const buildStreak = (C) => `<svg xmlns="http://www.w3.org/2000/svg" width="${W + SHX}" height="${H + SHY}" viewBox="0 0 ${W + SHX} ${H + SHY}" font-family="${MONO}">
   <rect x="${1.5 + SHX}" y="${1.5 + SHY}" width="843" height="162" fill="${C.shadow}"/>
@@ -192,6 +192,31 @@ const buildTitle = (text, C) => `<svg xmlns="http://www.w3.org/2000/svg" width="
   <rect x="3" y="37" width="840" height="4" fill="${C.accent}"/>
 </svg>`;
 
+// 자체 제작 타이핑 배너(테마별 흑백). readme-typing-svg는 단색이라 라이트/다크 전환 불가 → SMIL clip 애니메이션으로 직접 구현.
+const buildBanner = (C) => {
+  const W = 620, H = 44, fs = 20, y = 29, ch = fs * 0.6;
+  const lines = ["HI THERE. I'M 10M2-DEV", "FULL-STACK DEVELOPER — 14 YEARS", "ALWAYS LEARNING NEW THINGS"];
+  const typeS = 0.09, holdS = 1.4, eraseS = 0.045;
+  let t = 0;
+  const segs = lines.map((s) => {
+    const seg = { s, tw: +(s.length * ch).toFixed(1), b: +t.toFixed(2), tt: +(s.length * typeS).toFixed(2), et: +(s.length * eraseS).toFixed(2) };
+    seg.be = +(seg.b + seg.tt + holdS).toFixed(2);
+    t += seg.tt + holdS + seg.et;
+    return seg;
+  });
+  const TOTAL = t.toFixed(2);
+  const body = segs.map((g, i) => `
+  <clipPath id="bc${i}"><rect x="0" y="0" width="0" height="${H}">
+    <set attributeName="width" to="0" begin="clk.begin"/>
+    <animate attributeName="width" begin="clk.begin+${g.b}s" dur="${g.tt}s" values="0;${g.tw}" fill="freeze"/>
+    <animate attributeName="width" begin="clk.begin+${g.be}s" dur="${g.et}s" values="${g.tw};0" fill="freeze"/>
+  </rect></clipPath>
+  <text x="0" y="${y}" font-size="${fs}" font-weight="700" fill="${C.bannerFg}" clip-path="url(#bc${i})">${esc(g.s)}</text>`).join("");
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="${MONO}">
+  <rect width="0" height="0" fill="none"><animate id="clk" attributeName="width" begin="0s;clk.end" dur="${TOTAL}s" values="0;0"/></rect>${body}
+</svg>`;
+};
+
 const techStack = [
   { cat: "Language",          items: ["Delphi", "Java", "Kotlin", "JavaScript", "Python", "Dart"] },
   { cat: "Backend",           items: [".NET", "ASP.NET", "JSP", "Spring Boot", "Node.js"] },
@@ -210,8 +235,8 @@ const buildTechStack = (C) => {
     const chips = r.items.map((t) => {
       const w = cw(t, chipFS) + chipPadX * 2;
       const g = `
-  <rect x="${x.toFixed(1)}" y="${(cy - chipH / 2).toFixed(1)}" width="${w.toFixed(1)}" height="${chipH}" fill="${C.ink}"/>
-  <text x="${(x + w / 2).toFixed(1)}" y="${(cy + 4).toFixed(1)}" text-anchor="middle" font-size="${chipFS}" font-weight="700" fill="${C.bg}">${esc(t)}</text>`;
+  <rect x="${x.toFixed(1)}" y="${(cy - chipH / 2).toFixed(1)}" width="${w.toFixed(1)}" height="${chipH}" fill="${C.chipBg}" stroke="${C.chipBorder}" stroke-width="1.5"/>
+  <text x="${(x + w / 2).toFixed(1)}" y="${(cy + 4).toFixed(1)}" text-anchor="middle" font-size="${chipFS}" font-weight="700" fill="${C.chipFg}">${esc(t)}</text>`;
       x += w + chipGap;
       return g;
     }).join("");
@@ -275,6 +300,8 @@ writeFileSync("output/techstack-dark.svg", buildTechStack(themes.dark));
 writeFileSync("output/techstack-light.svg", buildTechStack(themes.light));
 writeFileSync("output/products-dark.svg", buildProducts(themes.dark));
 writeFileSync("output/products-light.svg", buildProducts(themes.light));
+writeFileSync("output/banner-dark.svg", buildBanner(themes.dark));
+writeFileSync("output/banner-light.svg", buildBanner(themes.light));
 for (const [name, text] of TITLES) {
   writeFileSync(`output/${name}-dark.svg`, buildTitle(text, themes.dark));
   writeFileSync(`output/${name}-light.svg`, buildTitle(text, themes.light));

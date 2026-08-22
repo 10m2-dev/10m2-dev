@@ -1,21 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="854" height="216" viewBox="0 0 854 216" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace">
-  <rect x="9.5" y="9.5" width="843" height="205" fill="#ffffff"/>
-  <rect x="1.5" y="1.5" width="843" height="205" fill="#161b22" stroke="#ffffff" stroke-width="3"/>
-  <line x1="80" y1="8" x2="80" y2="200" stroke="#ffffff" stroke-width="2"/>
-  <line x1="250" y1="8" x2="250" y2="200" stroke="#ffffff" stroke-width="2"/>
-  <text x="40" y="42" text-anchor="middle" font-size="12" font-weight="700" letter-spacing="0.5" fill="#ffffff">DATE</text>
-  <text x="96" y="42" font-size="12" font-weight="700" letter-spacing="0.5" fill="#ffffff">PROJECT</text>
-  <text x="266" y="42" font-size="12" font-weight="700" letter-spacing="0.5" fill="#ffffff">DESCRIPTION</text>
-  <line x1="8" y1="60" x2="838" y2="60" stroke="#ffffff" stroke-width="1.5"/>
-  <text x="40" y="86" text-anchor="middle" font-size="13" fill="#ffffff">2026</text>
-  <text x="96" y="86" font-size="13" font-weight="700" fill="#ffffff">Vibe101</text>
-  <text x="266" y="86" font-size="12" fill="#ffffff">Learn-by-building &quot;vibe coding&quot; platform (KO/EN)</text>
-  <line x1="8" y1="104" x2="838" y2="104" stroke="#ffffff" stroke-width="1.5"/>
-  <text x="40" y="130" text-anchor="middle" font-size="13" fill="#ffffff">2026</text>
-  <text x="96" y="130" font-size="13" font-weight="700" fill="#ffffff">Ondol</text>
-  <text x="266" y="130" font-size="12" fill="#ffffff">Rent/Jeonse verification &amp; scam-risk check for foreigners in Korea</text>
-  <line x1="8" y1="148" x2="838" y2="148" stroke="#ffffff" stroke-width="1.5"/>
-  <text x="40" y="174" text-anchor="middle" font-size="13" fill="#ffffff">2025</text>
-  <text x="96" y="174" font-size="13" font-weight="700" fill="#ffffff">BriefAuction</text>
-  <text x="266" y="174" font-size="12" fill="#ffffff">Nationwide court real-estate auction data — search, monthly stats &amp; guides</text>
+  <rect x="9.5" y="9.5" width="843" height="205" fill="#30363d"/>
+  <rect x="1.5" y="1.5" width="843" height="205" fill="#161b22" stroke="#c9d1d9" stroke-width="3"/>
+  <line x1="80" y1="8" x2="80" y2="200" stroke="#c9d1d9" stroke-width="2"/>
+  <line x1="250" y1="8" x2="250" y2="200" stroke="#c9d1d9" stroke-width="2"/>
+  <text x="40" y="42" text-anchor="middle" font-size="12" font-weight="700" letter-spacing="0.5" fill="#c9d1d9">DATE</text>
+  <text x="96" y="42" font-size="12" font-weight="700" letter-spacing="0.5" fill="#c9d1d9">PROJECT</text>
+  <text x="266" y="42" font-size="12" font-weight="700" letter-spacing="0.5" fill="#c9d1d9">DESCRIPTION</text>
+  <line x1="8" y1="60" x2="838" y2="60" stroke="#c9d1d9" stroke-width="1.5"/>
+  <text x="40" y="86" text-anchor="middle" font-size="13" fill="#c9d1d9">2026</text>
+  <text x="96" y="86" font-size="13" font-weight="700" fill="#c9d1d9">Vibe101</text>
+  <text x="266" y="86" font-size="12" fill="#c9d1d9">Learn-by-building &quot;vibe coding&quot; platform (KO/EN)</text>
+  <line x1="8" y1="104" x2="838" y2="104" stroke="#c9d1d9" stroke-width="1.5"/>
+  <text x="40" y="130" text-anchor="middle" font-size="13" fill="#c9d1d9">2026</text>
+  <text x="96" y="130" font-size="13" font-weight="700" fill="#c9d1d9">Ondol</text>
+  <text x="266" y="130" font-size="12" fill="#c9d1d9">Rent/Jeonse verification &amp; scam-risk check for foreigners in Korea</text>
+  <line x1="8" y1="148" x2="838" y2="148" stroke="#c9d1d9" stroke-width="1.5"/>
+  <text x="40" y="174" text-anchor="middle" font-size="13" fill="#c9d1d9">2025</text>
+  <text x="96" y="174" font-size="13" font-weight="700" fill="#c9d1d9">BriefAuction</text>
+  <text x="266" y="174" font-size="12" fill="#c9d1d9">Nationwide court real-estate auction data — search, monthly stats &amp; guides</text>
 </svg>

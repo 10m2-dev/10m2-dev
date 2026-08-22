@@ -1,9 +1,9 @@
 <!-- ===================== TYPING ===================== -->
-<div align="center">
-
-<img src="https://readme-typing-svg.demolab.com?font=Space+Mono&weight=700&size=22&pause=1000&color=2EA043&center=true&vCenter=true&width=600&lines=HI+THERE.+I'M+10M2-DEV;FULL-STACK+DEVELOPER+%E2%80%94+14+YEARS;ALWAYS+LEARNING+NEW+THINGS" alt="typing" />
-
-</div>
+<picture>
+  <source media="(prefers-color-scheme: dark)"  srcset="./output/banner-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./output/banner-light.svg">
+  <img src="./output/banner-dark.svg" alt="Hi there, I'm 10m2-dev" />
+</picture>
 
 <br/>
 
