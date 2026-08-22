@@ -218,12 +218,12 @@ const buildBanner = (C) => {
 };
 
 const techStack = [
-  { cat: "Language",          items: ["Delphi", "Java", "Kotlin", "JavaScript", "Python", "Dart"] },
-  { cat: "Backend",           items: [".NET", "ASP.NET", "JSP", "Spring Boot", "Node.js"] },
-  { cat: "Frontend & Mobile", items: ["Angular", "React", "Next.js", "Flutter", "Android"] },
-  { cat: "Data & Domain",     items: ["PostgreSQL", "Oracle", "MySQL", "OCPP 1.6"] },
+  { cat: "Language",          items: ["JavaScript", "Dart", "C#", "Java", "Kotlin", "Python", "Delphi"] },
+  { cat: "Backend",           items: ["Node.js", "Spring Boot", ".NET", "ASP.NET", "JSP"] },
+  { cat: "Frontend & Mobile", items: ["Next.js", "React", "Angular", "Flutter", "Android"] },
+  { cat: "Data & Domain",     items: ["PostgreSQL", "MySQL", "Oracle", "OCPP"] },
+  { cat: "Infra & CI/CD",     items: ["AWS", "IIS", "Vercel", "Supabase", "Jenkins", "Git Worktree", "Vite"] },
   { cat: "AI Engineering",    items: ["Claude Code", "Spec-Driven Development"] },
-  { cat: "Infra & Delivery",  items: ["Vercel", "Supabase", "Git Worktree", "Vite"] },
 ];
 const buildTechStack = (C) => {
   const catW = 170, padTop = 16, rowH = 44, chipFS = 12.5, chipH = 22, chipPadX = 9, chipGap = 7;
