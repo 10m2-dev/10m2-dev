@@ -182,6 +182,56 @@ const buildProductive = (C) => {
 </svg>`;
 };
 
+// ============ 정적 브루탈리즘 요소: 섹션 제목 스트립 + Tech Stack 박스 ============
+// 제목을 <h3> 대신 SVG 이미지로 만들어 GitHub 자동 앵커 링크(제목 앞 🔗)를 제거.
+const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+const cw = (s, fs) => s.length * fs * 0.6; // 모노 글자폭 근사
+
+const buildTitle = (text, C) => `<svg xmlns="http://www.w3.org/2000/svg" width="854" height="46" viewBox="0 0 854 46" font-family="${MONO}">
+  <text x="3" y="29" font-size="20" font-weight="700" letter-spacing="1" fill="${C.ink}">${esc(text)}</text>
+  <rect x="3" y="37" width="840" height="4" fill="${C.ink}"/>
+</svg>`;
+
+const techStack = [
+  { cat: "Language",          items: ["Delphi", "Java", "Kotlin", "JavaScript", "Python", "Dart"] },
+  { cat: "Backend",           items: [".NET", "ASP.NET", "JSP", "Spring Boot", "Node.js"] },
+  { cat: "Frontend & Mobile", items: ["Angular", "React", "Next.js", "Flutter", "Android"] },
+  { cat: "Data & Domain",     items: ["PostgreSQL", "Oracle", "MySQL", "OCPP 1.6"] },
+  { cat: "AI Engineering",    items: ["Claude Code", "Spec-Driven Development"] },
+  { cat: "Infra & Delivery",  items: ["Vercel", "Supabase", "Git Worktree", "Vite"] },
+];
+const buildTechStack = (C) => {
+  const catW = 170, padTop = 14, rowH = 36, chipFS = 12.5, chipH = 22, chipPadX = 9, chipGap = 7;
+  const IH = padTop * 2 + techStack.length * rowH; // 244
+  const chipsX = catW + 16;
+  const body = techStack.map((r, i) => {
+    const cy = padTop + rowH / 2 + i * rowH;
+    let x = chipsX;
+    const chips = r.items.map((t) => {
+      const w = cw(t, chipFS) + chipPadX * 2;
+      const g = `
+  <rect x="${x.toFixed(1)}" y="${(cy - chipH / 2).toFixed(1)}" width="${w.toFixed(1)}" height="${chipH}" fill="${C.ink}"/>
+  <text x="${(x + w / 2).toFixed(1)}" y="${(cy + 4).toFixed(1)}" text-anchor="middle" font-size="${chipFS}" font-weight="700" fill="${C.bg}">${esc(t)}</text>`;
+      x += w + chipGap;
+      return g;
+    }).join("");
+    const div = i > 0 ? `\n  <line x1="8" y1="${padTop + i * rowH}" x2="838" y2="${padTop + i * rowH}" stroke="${C.border}" stroke-width="1.5"/>` : "";
+    return `${div}
+  <text x="22" y="${(cy + 4).toFixed(1)}" font-size="12.5" font-weight="700" letter-spacing="0.5" fill="${C.num}">${esc(r.cat.toUpperCase())}</text>${chips}`;
+  }).join("");
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W + SHX}" height="${IH + SHY}" viewBox="0 0 ${W + SHX} ${IH + SHY}" font-family="${MONO}">
+  <rect x="${1.5 + SHX}" y="${1.5 + SHY}" width="843" height="${IH - 3}" fill="${C.shadow}"/>
+  <rect x="1.5" y="1.5" width="843" height="${IH - 3}" fill="${C.bg}" stroke="${C.border}" stroke-width="3"/>
+  <line x1="${catW}" y1="8" x2="${catW}" y2="${IH - 8}" stroke="${C.border}" stroke-width="2"/>${body}
+</svg>`;
+};
+const TITLES = [
+  ["title-techstack", "TECH STACK"],
+  ["title-products", "PRODUCTS"],
+  ["title-active", "WHEN AM I MOST ACTIVE"],
+  ["title-streak", "COMMIT STREAK"],
+];
+
 // ============ 출력 ============
 let readme = readFileSync(README, "utf8");
 const re = new RegExp(`${PT_START}[\\s\\S]*?${PT_END}`);
@@ -193,6 +243,12 @@ writeFileSync("output/streak-dark.svg", buildStreak(themes.dark));
 writeFileSync("output/streak-light.svg", buildStreak(themes.light));
 writeFileSync("output/productive-dark.svg", buildProductive(themes.dark));
 writeFileSync("output/productive-light.svg", buildProductive(themes.light));
+writeFileSync("output/techstack-dark.svg", buildTechStack(themes.dark));
+writeFileSync("output/techstack-light.svg", buildTechStack(themes.light));
+for (const [name, text] of TITLES) {
+  writeFileSync(`output/${name}-dark.svg`, buildTitle(text, themes.dark));
+  writeFileSync(`output/${name}-light.svg`, buildTitle(text, themes.light));
+}
 console.log("updated", { buckets, total, current, longest, totalContrib, currentRange, longestRange });
 
 // CI: 직접 커밋/푸시
