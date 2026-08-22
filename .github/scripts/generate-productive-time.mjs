@@ -122,60 +122,63 @@ const longestRange = longest === 0 ? "—"
   : `${fMD(days[lStart].date)} – ${fMD(days[lEnd].date)}`;
 
 const W = 846, H = 165, cx = [70.5, 211.5, 352.5, 493.5, 634.5, 775.5];
+const MONO = "ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace";
+const SHX = 8, SHY = 8; // 브루탈리즘 하드 오프셋 그림자
 const themes = {
-  dark:  { bg: "#161b22", border: "#30363d", div: "#30363d", num: "#c9d1d9", label: "#8b949e", date: "#6e7681", accent: "#ffffff", track: "#30363d" },
-  light: { bg: "#ffffff", border: "#d0d7de", div: "#d0d7de", num: "#1f2328", label: "#57606a", date: "#8b949e", accent: "#000000", track: "#eaeef2" },
+  dark:  { bg: "#161b22", border: "#ffffff", shadow: "#ffffff", ink: "#ffffff", num: "#ffffff", label: "#ffffff", date: "#8b949e", accent: "#ffffff", track: "#30363d" },
+  light: { bg: "#ffffff", border: "#000000", shadow: "#000000", ink: "#000000", num: "#000000", label: "#000000", date: "#57606a", accent: "#000000", track: "#d0d0d0" },
 };
-const buildStreak = (C) => `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="'Segoe UI', Ubuntu, Helvetica, Arial, sans-serif">
-  <rect x="1" y="1" width="${W - 2}" height="${H - 2}" rx="12" fill="${C.bg}" stroke="${C.border}"/>
-  <line x1="141" y1="30" x2="141" y2="135" stroke="${C.div}"/>
-  <line x1="282" y1="30" x2="282" y2="135" stroke="${C.div}"/>
-  <line x1="423" y1="30" x2="423" y2="135" stroke="${C.div}"/>
-  <line x1="564" y1="30" x2="564" y2="135" stroke="${C.div}"/>
-  <line x1="705" y1="30" x2="705" y2="135" stroke="${C.div}"/>
+const buildStreak = (C) => `<svg xmlns="http://www.w3.org/2000/svg" width="${W + SHX}" height="${H + SHY}" viewBox="0 0 ${W + SHX} ${H + SHY}" font-family="${MONO}">
+  <rect x="${1.5 + SHX}" y="${1.5 + SHY}" width="843" height="162" fill="${C.shadow}"/>
+  <rect x="1.5" y="1.5" width="843" height="162" fill="${C.bg}" stroke="${C.border}" stroke-width="3"/>
+  <line x1="141" y1="22" x2="141" y2="143" stroke="${C.border}" stroke-width="2"/>
+  <line x1="282" y1="22" x2="282" y2="143" stroke="${C.border}" stroke-width="2"/>
+  <line x1="423" y1="22" x2="423" y2="143" stroke="${C.border}" stroke-width="2"/>
+  <line x1="564" y1="22" x2="564" y2="143" stroke="${C.border}" stroke-width="2"/>
+  <line x1="705" y1="22" x2="705" y2="143" stroke="${C.border}" stroke-width="2"/>
 
   <text x="${cx[0]}" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="${C.num}">${totalContrib}</text>
-  <text x="${cx[0]}" y="100" text-anchor="middle" font-size="12" fill="${C.label}">Total Contributions</text>
-  <text x="${cx[0]}" y="120" text-anchor="middle" font-size="10" fill="${C.date}">${totalRange}</text>
+  <text x="${cx[0]}" y="100" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="${C.label}">CONTRIBUTIONS</text>
+  <text x="${cx[0]}" y="120" text-anchor="middle" font-size="9" fill="${C.date}">${totalRange}</text>
 
-  <text x="${cx[1]}" y="32" text-anchor="middle" font-size="16">🔥</text>
-  <circle cx="${cx[1]}" cy="64" r="26" fill="none" stroke="${C.accent}" stroke-width="3"/>
-  <text x="${cx[1]}" y="72" text-anchor="middle" font-size="23" font-weight="700" fill="${C.accent}">${current}</text>
-  <text x="${cx[1]}" y="108" text-anchor="middle" font-size="12" font-weight="600" fill="${C.accent}">Current Streak</text>
-  <text x="${cx[1]}" y="127" text-anchor="middle" font-size="10" fill="${C.date}">${currentRange}</text>
+  <rect x="${cx[1] - 24}" y="40" width="48" height="48" fill="none" stroke="${C.accent}" stroke-width="3"/>
+  <text x="${cx[1]}" y="72" text-anchor="middle" font-size="22" font-weight="700" fill="${C.accent}">${current}</text>
+  <text x="${cx[1]}" y="108" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="${C.accent}">CURRENT STREAK</text>
+  <text x="${cx[1]}" y="127" text-anchor="middle" font-size="9" fill="${C.date}">${currentRange}</text>
 
   <text x="${cx[2]}" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="${C.num}">${longest}</text>
-  <text x="${cx[2]}" y="100" text-anchor="middle" font-size="12" fill="${C.label}">Longest Streak</text>
-  <text x="${cx[2]}" y="120" text-anchor="middle" font-size="10" fill="${C.date}">${longestRange}</text>
+  <text x="${cx[2]}" y="100" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="${C.label}">LONGEST STREAK</text>
+  <text x="${cx[2]}" y="120" text-anchor="middle" font-size="9" fill="${C.date}">${longestRange}</text>
 
   <text x="${cx[3]}" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="${C.accent}">${stats.bestDay}</text>
-  <text x="${cx[3]}" y="100" text-anchor="middle" font-size="12" fill="${C.label}">Best Day</text>
+  <text x="${cx[3]}" y="100" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="${C.label}">BEST DAY</text>
 
   <text x="${cx[4]}" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="${C.num}">${stats.activeDays}</text>
-  <text x="${cx[4]}" y="100" text-anchor="middle" font-size="12" fill="${C.label}">Active Days</text>
+  <text x="${cx[4]}" y="100" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="${C.label}">ACTIVE DAYS</text>
 
   <text x="${cx[5]}" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="${C.num}">${stats.avgPerDay}</text>
-  <text x="${cx[5]}" y="100" text-anchor="middle" font-size="12" fill="${C.label}">Avg / Day</text>
+  <text x="${cx[5]}" y="100" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="${C.label}">AVG / DAY</text>
 </svg>`;
 
-// 시간대별 활동 SVG 박스 카드(14px, Streak과 동일 톤). 바 = 트랙 rect + 채움 rect.
+// 시간대별 활동 = 브루탈리즘 박스 카드(각진·두꺼운 테두리·하드 그림자·모노 대문자). 바 = 트랙 rect(테두리) + 채움 rect.
 const buildProductive = (C) => {
-  const barX = 402, barW = 300, barH = 12, row0 = 46, rowH = 38;
+  const barX = 402, barW = 300, barH = 14, row0 = 46, rowH = 38;
   const PH = row0 * 2 + (ptRows.length - 1) * rowH; // 206
   const rows = ptRows.map((r, i) => {
     const cy = row0 + i * rowH;
     const fillW = Math.max(4, (barW * r.percent) / 100).toFixed(1);
     return `
-  <text x="46" y="${cy + 6}" text-anchor="middle" font-size="17">${r.emoji}</text>
-  <text x="74" y="${cy + 5}" font-size="14" font-weight="600" fill="${C.num}">${r.label}</text>
-  <text x="184" y="${cy + 5}" font-size="13" fill="${C.date}">${r.time}</text>
-  <text x="374" y="${cy + 5}" text-anchor="end" font-size="13" fill="${C.num}">${r.n} commits</text>
-  <rect x="${barX}" y="${cy - barH / 2}" width="${barW}" height="${barH}" rx="6" fill="${C.track}"/>
-  <rect x="${barX}" y="${cy - barH / 2}" width="${fillW}" height="${barH}" rx="6" fill="${C.accent}"/>
+  <rect x="30" y="${cy - 6}" width="12" height="12" fill="${C.ink}"/>
+  <text x="54" y="${cy + 5}" font-size="14" font-weight="700" letter-spacing="0.5" fill="${C.num}">${r.label.toUpperCase()}</text>
+  <text x="170" y="${cy + 5}" font-size="12" fill="${C.date}">${r.time}</text>
+  <text x="380" y="${cy + 5}" text-anchor="end" font-size="12" fill="${C.num}">${r.n} COMMITS</text>
+  <rect x="${barX}" y="${cy - barH / 2}" width="${barW}" height="${barH}" fill="${C.track}" stroke="${C.border}" stroke-width="1.5"/>
+  <rect x="${barX}" y="${cy - barH / 2}" width="${fillW}" height="${barH}" fill="${C.accent}"/>
   <text x="806" y="${cy + 5}" text-anchor="end" font-size="14" font-weight="700" fill="${C.accent}">${r.percent.toFixed(1)}%</text>`;
   }).join("");
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="846" height="${PH}" viewBox="0 0 846 ${PH}" font-family="'Segoe UI', Ubuntu, Helvetica, Arial, sans-serif">
-  <rect x="1" y="1" width="844" height="${PH - 2}" rx="12" fill="${C.bg}" stroke="${C.border}"/>${rows}
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W + SHX}" height="${PH + SHY}" viewBox="0 0 ${W + SHX} ${PH + SHY}" font-family="${MONO}">
+  <rect x="${1.5 + SHX}" y="${1.5 + SHY}" width="843" height="${PH - 3}" fill="${C.shadow}"/>
+  <rect x="1.5" y="1.5" width="843" height="${PH - 3}" fill="${C.bg}" stroke="${C.border}" stroke-width="3"/>${rows}
 </svg>`;
 };
 
