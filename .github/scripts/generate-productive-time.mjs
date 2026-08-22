@@ -125,8 +125,8 @@ const W = 846, H = 165, cx = [70.5, 211.5, 352.5, 493.5, 634.5, 775.5];
 const MONO = "ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace";
 const SHX = 8, SHY = 8; // 브루탈리즘 하드 오프셋 그림자
 const themes = {
-  dark:  { bg: "#161b22", border: "#c9d1d9", shadow: "#30363d", ink: "#c9d1d9", num: "#c9d1d9", label: "#8b949e", date: "#6e7681", accent: "#39d353", track: "#30363d", chipBg: "#21262d", chipFg: "#c9d1d9", chipBorder: "#444c56", bannerFg: "#ffffff" },
-  light: { bg: "#ffffff", border: "#000000", shadow: "#000000", ink: "#000000", num: "#000000", label: "#000000", date: "#57606a", accent: "#1a7f37", track: "#d0d0d0", chipBg: "#000000", chipFg: "#ffffff", chipBorder: "#000000", bannerFg: "#000000" },
+  dark:  { bg: "#161b22", border: "#c9d1d9", shadow: "#196c2e", ink: "#c9d1d9", num: "#c9d1d9", label: "#8b949e", date: "#6e7681", accent: "#39d353", track: "#30363d", chipBg: "#21262d", chipFg: "#c9d1d9", chipBorder: "#444c56", bannerFg: "#ffffff" },
+  light: { bg: "#ffffff", border: "#000000", shadow: "#196c2e", ink: "#000000", num: "#000000", label: "#000000", date: "#57606a", accent: "#1a7f37", track: "#d0d0d0", chipBg: "#000000", chipFg: "#ffffff", chipBorder: "#000000", bannerFg: "#000000" },
 };
 const buildStreak = (C) => `<svg xmlns="http://www.w3.org/2000/svg" width="${W + SHX}" height="${H + SHY}" viewBox="0 0 ${W + SHX} ${H + SHY}" font-family="${MONO}">
   <rect x="${1.5 + SHX}" y="${1.5 + SHY}" width="843" height="162" fill="${C.shadow}"/>
@@ -194,8 +194,8 @@ const buildTitle = (text, C) => `<svg xmlns="http://www.w3.org/2000/svg" width="
 
 // 자체 제작 타이핑 배너(테마별 흑백). readme-typing-svg는 단색이라 라이트/다크 전환 불가 → SMIL clip 애니메이션으로 직접 구현.
 const buildBanner = (C) => {
-  const W = 620, H = 44, fs = 20, y = 29, ch = fs * 0.6;
-  const lines = ["HI THERE. I'M 10M2-DEV", "FULL-STACK DEVELOPER — 14 YEARS", "ALWAYS LEARNING NEW THINGS"];
+  const W = 620, H = 52, fs = 24, y = 34, ch = fs * 0.6;
+  const lines = ["HI THERE. I'M 10m2", "FULL-STACK DEVELOPER — 14 YEARS", "ALWAYS LEARNING NEW THINGS"];
   const typeS = 0.09, holdS = 1.4, eraseS = 0.045;
   let t = 0;
   const segs = lines.map((s) => {

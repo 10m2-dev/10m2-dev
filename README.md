@@ -2,9 +2,10 @@
 <picture>
   <source media="(prefers-color-scheme: dark)"  srcset="./output/banner-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="./output/banner-light.svg">
-  <img src="./output/banner-dark.svg" alt="Hi there, I'm 10m2-dev" />
+  <img src="./output/banner-dark.svg" alt="Hi there, I'm 10m2" />
 </picture>
 
+<br/>
 <br/>
 
 <!-- ===================== TECH STACK ===================== -->

@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="854" height="304" viewBox="0 0 854 304" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace">
-  <rect x="9.5" y="9.5" width="843" height="293" fill="#30363d"/>
+  <rect x="9.5" y="9.5" width="843" height="293" fill="#196c2e"/>
   <rect x="1.5" y="1.5" width="843" height="293" fill="#161b22" stroke="#c9d1d9" stroke-width="3"/>
   <line x1="170" y1="8" x2="170" y2="288" stroke="#c9d1d9" stroke-width="2"/>
   <text x="22" y="42.0" font-size="12.5" font-weight="700" letter-spacing="0.5" fill="#c9d1d9">LANGUAGE</text>

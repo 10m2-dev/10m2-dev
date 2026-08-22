@@ -1,21 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="620" height="44" viewBox="0 0 620 44" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace">
-  <rect width="0" height="0" fill="none"><animate id="clk" attributeName="width" begin="0s;clk.end" dur="14.87s" values="0;0"/></rect>
-  <clipPath id="bc0"><rect x="0" y="0" width="0" height="44">
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="52" viewBox="0 0 620 52" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace">
+  <rect width="0" height="0" fill="none"><animate id="clk" attributeName="width" begin="0s;clk.end" dur="14.33s" values="0;0"/></rect>
+  <clipPath id="bc0"><rect x="0" y="0" width="0" height="52">
     <set attributeName="width" to="0" begin="clk.begin"/>
-    <animate attributeName="width" begin="clk.begin+0s" dur="1.98s" values="0;264" fill="freeze"/>
-    <animate attributeName="width" begin="clk.begin+3.38s" dur="0.99s" values="264;0" fill="freeze"/>
+    <animate attributeName="width" begin="clk.begin+0s" dur="1.62s" values="0;259.2" fill="freeze"/>
+    <animate attributeName="width" begin="clk.begin+3.02s" dur="0.81s" values="259.2;0" fill="freeze"/>
   </rect></clipPath>
-  <text x="0" y="29" font-size="20" font-weight="700" fill="#000000" clip-path="url(#bc0)">HI THERE. I'M 10M2-DEV</text>
-  <clipPath id="bc1"><rect x="0" y="0" width="0" height="44">
+  <text x="0" y="34" font-size="24" font-weight="700" fill="#000000" clip-path="url(#bc0)">HI THERE. I'M 10m2</text>
+  <clipPath id="bc1"><rect x="0" y="0" width="0" height="52">
     <set attributeName="width" to="0" begin="clk.begin"/>
-    <animate attributeName="width" begin="clk.begin+4.37s" dur="2.79s" values="0;372" fill="freeze"/>
-    <animate attributeName="width" begin="clk.begin+8.56s" dur="1.4s" values="372;0" fill="freeze"/>
+    <animate attributeName="width" begin="clk.begin+3.83s" dur="2.79s" values="0;446.4" fill="freeze"/>
+    <animate attributeName="width" begin="clk.begin+8.02s" dur="1.4s" values="446.4;0" fill="freeze"/>
   </rect></clipPath>
-  <text x="0" y="29" font-size="20" font-weight="700" fill="#000000" clip-path="url(#bc1)">FULL-STACK DEVELOPER — 14 YEARS</text>
-  <clipPath id="bc2"><rect x="0" y="0" width="0" height="44">
+  <text x="0" y="34" font-size="24" font-weight="700" fill="#000000" clip-path="url(#bc1)">FULL-STACK DEVELOPER — 14 YEARS</text>
+  <clipPath id="bc2"><rect x="0" y="0" width="0" height="52">
     <set attributeName="width" to="0" begin="clk.begin"/>
-    <animate attributeName="width" begin="clk.begin+9.96s" dur="2.34s" values="0;312" fill="freeze"/>
-    <animate attributeName="width" begin="clk.begin+13.7s" dur="1.17s" values="312;0" fill="freeze"/>
+    <animate attributeName="width" begin="clk.begin+9.42s" dur="2.34s" values="0;374.4" fill="freeze"/>
+    <animate attributeName="width" begin="clk.begin+13.16s" dur="1.17s" values="374.4;0" fill="freeze"/>
   </rect></clipPath>
-  <text x="0" y="29" font-size="20" font-weight="700" fill="#000000" clip-path="url(#bc2)">ALWAYS LEARNING NEW THINGS</text>
+  <text x="0" y="34" font-size="24" font-weight="700" fill="#000000" clip-path="url(#bc2)">ALWAYS LEARNING NEW THINGS</text>
 </svg>
