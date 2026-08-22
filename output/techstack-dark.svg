@@ -1,68 +1,68 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="854" height="252" viewBox="0 0 854 252" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace">
-  <rect x="9.5" y="9.5" width="843" height="241" fill="#ffffff"/>
-  <rect x="1.5" y="1.5" width="843" height="241" fill="#161b22" stroke="#ffffff" stroke-width="3"/>
-  <line x1="170" y1="8" x2="170" y2="236" stroke="#ffffff" stroke-width="2"/>
-  <text x="22" y="36.0" font-size="12.5" font-weight="700" letter-spacing="0.5" fill="#ffffff">LANGUAGE</text>
-  <rect x="186.0" y="21.0" width="63.0" height="22" fill="#ffffff"/>
-  <text x="217.5" y="36.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Delphi</text>
-  <rect x="256.0" y="21.0" width="48.0" height="22" fill="#ffffff"/>
-  <text x="280.0" y="36.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Java</text>
-  <rect x="311.0" y="21.0" width="63.0" height="22" fill="#ffffff"/>
-  <text x="342.5" y="36.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Kotlin</text>
-  <rect x="381.0" y="21.0" width="93.0" height="22" fill="#ffffff"/>
-  <text x="427.5" y="36.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">JavaScript</text>
-  <rect x="481.0" y="21.0" width="63.0" height="22" fill="#ffffff"/>
-  <text x="512.5" y="36.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Python</text>
-  <rect x="551.0" y="21.0" width="48.0" height="22" fill="#ffffff"/>
-  <text x="575.0" y="36.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Dart</text>
-  <line x1="8" y1="50" x2="838" y2="50" stroke="#ffffff" stroke-width="1.5"/>
-  <text x="22" y="72.0" font-size="12.5" font-weight="700" letter-spacing="0.5" fill="#ffffff">BACKEND</text>
-  <rect x="186.0" y="57.0" width="48.0" height="22" fill="#ffffff"/>
-  <text x="210.0" y="72.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">.NET</text>
-  <rect x="241.0" y="57.0" width="70.5" height="22" fill="#ffffff"/>
-  <text x="276.3" y="72.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">ASP.NET</text>
-  <rect x="318.5" y="57.0" width="40.5" height="22" fill="#ffffff"/>
-  <text x="338.8" y="72.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">JSP</text>
-  <rect x="366.0" y="57.0" width="100.5" height="22" fill="#ffffff"/>
-  <text x="416.3" y="72.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Spring Boot</text>
-  <rect x="473.5" y="57.0" width="70.5" height="22" fill="#ffffff"/>
-  <text x="508.8" y="72.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Node.js</text>
-  <line x1="8" y1="86" x2="838" y2="86" stroke="#ffffff" stroke-width="1.5"/>
-  <text x="22" y="108.0" font-size="12.5" font-weight="700" letter-spacing="0.5" fill="#ffffff">FRONTEND &amp; MOBILE</text>
-  <rect x="186.0" y="93.0" width="70.5" height="22" fill="#ffffff"/>
-  <text x="221.3" y="108.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Angular</text>
-  <rect x="263.5" y="93.0" width="55.5" height="22" fill="#ffffff"/>
-  <text x="291.3" y="108.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">React</text>
-  <rect x="326.0" y="93.0" width="70.5" height="22" fill="#ffffff"/>
-  <text x="361.3" y="108.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Next.js</text>
-  <rect x="403.5" y="93.0" width="70.5" height="22" fill="#ffffff"/>
-  <text x="438.8" y="108.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Flutter</text>
-  <rect x="481.0" y="93.0" width="70.5" height="22" fill="#ffffff"/>
-  <text x="516.3" y="108.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Android</text>
-  <line x1="8" y1="122" x2="838" y2="122" stroke="#ffffff" stroke-width="1.5"/>
-  <text x="22" y="144.0" font-size="12.5" font-weight="700" letter-spacing="0.5" fill="#ffffff">DATA &amp; DOMAIN</text>
-  <rect x="186.0" y="129.0" width="93.0" height="22" fill="#ffffff"/>
-  <text x="232.5" y="144.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">PostgreSQL</text>
-  <rect x="286.0" y="129.0" width="63.0" height="22" fill="#ffffff"/>
-  <text x="317.5" y="144.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Oracle</text>
-  <rect x="356.0" y="129.0" width="55.5" height="22" fill="#ffffff"/>
-  <text x="383.8" y="144.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">MySQL</text>
-  <rect x="418.5" y="129.0" width="78.0" height="22" fill="#ffffff"/>
-  <text x="457.5" y="144.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">OCPP 1.6</text>
-  <line x1="8" y1="158" x2="838" y2="158" stroke="#ffffff" stroke-width="1.5"/>
-  <text x="22" y="180.0" font-size="12.5" font-weight="700" letter-spacing="0.5" fill="#ffffff">AI ENGINEERING</text>
-  <rect x="186.0" y="165.0" width="100.5" height="22" fill="#ffffff"/>
-  <text x="236.3" y="180.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Claude Code</text>
-  <rect x="293.5" y="165.0" width="190.5" height="22" fill="#ffffff"/>
-  <text x="388.8" y="180.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Spec-Driven Development</text>
-  <line x1="8" y1="194" x2="838" y2="194" stroke="#ffffff" stroke-width="1.5"/>
-  <text x="22" y="216.0" font-size="12.5" font-weight="700" letter-spacing="0.5" fill="#ffffff">INFRA &amp; DELIVERY</text>
-  <rect x="186.0" y="201.0" width="63.0" height="22" fill="#ffffff"/>
-  <text x="217.5" y="216.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Vercel</text>
-  <rect x="256.0" y="201.0" width="78.0" height="22" fill="#ffffff"/>
-  <text x="295.0" y="216.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Supabase</text>
-  <rect x="341.0" y="201.0" width="108.0" height="22" fill="#ffffff"/>
-  <text x="395.0" y="216.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Git Worktree</text>
-  <rect x="456.0" y="201.0" width="48.0" height="22" fill="#ffffff"/>
-  <text x="480.0" y="216.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Vite</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="854" height="304" viewBox="0 0 854 304" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace">
+  <rect x="9.5" y="9.5" width="843" height="293" fill="#ffffff"/>
+  <rect x="1.5" y="1.5" width="843" height="293" fill="#161b22" stroke="#ffffff" stroke-width="3"/>
+  <line x1="170" y1="8" x2="170" y2="288" stroke="#ffffff" stroke-width="2"/>
+  <text x="22" y="42.0" font-size="12.5" font-weight="700" letter-spacing="0.5" fill="#ffffff">LANGUAGE</text>
+  <rect x="186.0" y="27.0" width="63.0" height="22" fill="#ffffff"/>
+  <text x="217.5" y="42.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Delphi</text>
+  <rect x="256.0" y="27.0" width="48.0" height="22" fill="#ffffff"/>
+  <text x="280.0" y="42.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Java</text>
+  <rect x="311.0" y="27.0" width="63.0" height="22" fill="#ffffff"/>
+  <text x="342.5" y="42.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Kotlin</text>
+  <rect x="381.0" y="27.0" width="93.0" height="22" fill="#ffffff"/>
+  <text x="427.5" y="42.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">JavaScript</text>
+  <rect x="481.0" y="27.0" width="63.0" height="22" fill="#ffffff"/>
+  <text x="512.5" y="42.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Python</text>
+  <rect x="551.0" y="27.0" width="48.0" height="22" fill="#ffffff"/>
+  <text x="575.0" y="42.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Dart</text>
+  <line x1="8" y1="60" x2="838" y2="60" stroke="#ffffff" stroke-width="1.5"/>
+  <text x="22" y="86.0" font-size="12.5" font-weight="700" letter-spacing="0.5" fill="#ffffff">BACKEND</text>
+  <rect x="186.0" y="71.0" width="48.0" height="22" fill="#ffffff"/>
+  <text x="210.0" y="86.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">.NET</text>
+  <rect x="241.0" y="71.0" width="70.5" height="22" fill="#ffffff"/>
+  <text x="276.3" y="86.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">ASP.NET</text>
+  <rect x="318.5" y="71.0" width="40.5" height="22" fill="#ffffff"/>
+  <text x="338.8" y="86.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">JSP</text>
+  <rect x="366.0" y="71.0" width="100.5" height="22" fill="#ffffff"/>
+  <text x="416.3" y="86.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Spring Boot</text>
+  <rect x="473.5" y="71.0" width="70.5" height="22" fill="#ffffff"/>
+  <text x="508.8" y="86.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Node.js</text>
+  <line x1="8" y1="104" x2="838" y2="104" stroke="#ffffff" stroke-width="1.5"/>
+  <text x="22" y="130.0" font-size="12.5" font-weight="700" letter-spacing="0.5" fill="#ffffff">FRONTEND &amp; MOBILE</text>
+  <rect x="186.0" y="115.0" width="70.5" height="22" fill="#ffffff"/>
+  <text x="221.3" y="130.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Angular</text>
+  <rect x="263.5" y="115.0" width="55.5" height="22" fill="#ffffff"/>
+  <text x="291.3" y="130.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">React</text>
+  <rect x="326.0" y="115.0" width="70.5" height="22" fill="#ffffff"/>
+  <text x="361.3" y="130.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Next.js</text>
+  <rect x="403.5" y="115.0" width="70.5" height="22" fill="#ffffff"/>
+  <text x="438.8" y="130.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Flutter</text>
+  <rect x="481.0" y="115.0" width="70.5" height="22" fill="#ffffff"/>
+  <text x="516.3" y="130.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Android</text>
+  <line x1="8" y1="148" x2="838" y2="148" stroke="#ffffff" stroke-width="1.5"/>
+  <text x="22" y="174.0" font-size="12.5" font-weight="700" letter-spacing="0.5" fill="#ffffff">DATA &amp; DOMAIN</text>
+  <rect x="186.0" y="159.0" width="93.0" height="22" fill="#ffffff"/>
+  <text x="232.5" y="174.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">PostgreSQL</text>
+  <rect x="286.0" y="159.0" width="63.0" height="22" fill="#ffffff"/>
+  <text x="317.5" y="174.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Oracle</text>
+  <rect x="356.0" y="159.0" width="55.5" height="22" fill="#ffffff"/>
+  <text x="383.8" y="174.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">MySQL</text>
+  <rect x="418.5" y="159.0" width="78.0" height="22" fill="#ffffff"/>
+  <text x="457.5" y="174.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">OCPP 1.6</text>
+  <line x1="8" y1="192" x2="838" y2="192" stroke="#ffffff" stroke-width="1.5"/>
+  <text x="22" y="218.0" font-size="12.5" font-weight="700" letter-spacing="0.5" fill="#ffffff">AI ENGINEERING</text>
+  <rect x="186.0" y="203.0" width="100.5" height="22" fill="#ffffff"/>
+  <text x="236.3" y="218.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Claude Code</text>
+  <rect x="293.5" y="203.0" width="190.5" height="22" fill="#ffffff"/>
+  <text x="388.8" y="218.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Spec-Driven Development</text>
+  <line x1="8" y1="236" x2="838" y2="236" stroke="#ffffff" stroke-width="1.5"/>
+  <text x="22" y="262.0" font-size="12.5" font-weight="700" letter-spacing="0.5" fill="#ffffff">INFRA &amp; DELIVERY</text>
+  <rect x="186.0" y="247.0" width="63.0" height="22" fill="#ffffff"/>
+  <text x="217.5" y="262.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Vercel</text>
+  <rect x="256.0" y="247.0" width="78.0" height="22" fill="#ffffff"/>
+  <text x="295.0" y="262.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Supabase</text>
+  <rect x="341.0" y="247.0" width="108.0" height="22" fill="#ffffff"/>
+  <text x="395.0" y="262.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Git Worktree</text>
+  <rect x="456.0" y="247.0" width="48.0" height="22" fill="#ffffff"/>
+  <text x="480.0" y="262.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161b22">Vite</text>
 </svg>

@@ -125,8 +125,8 @@ const W = 846, H = 165, cx = [70.5, 211.5, 352.5, 493.5, 634.5, 775.5];
 const MONO = "ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace";
 const SHX = 8, SHY = 8; // 브루탈리즘 하드 오프셋 그림자
 const themes = {
-  dark:  { bg: "#161b22", border: "#ffffff", shadow: "#ffffff", ink: "#ffffff", num: "#ffffff", label: "#ffffff", date: "#8b949e", accent: "#ffffff", track: "#30363d" },
-  light: { bg: "#ffffff", border: "#000000", shadow: "#000000", ink: "#000000", num: "#000000", label: "#000000", date: "#57606a", accent: "#000000", track: "#d0d0d0" },
+  dark:  { bg: "#161b22", border: "#ffffff", shadow: "#ffffff", ink: "#ffffff", num: "#ffffff", label: "#ffffff", date: "#8b949e", accent: "#39d353", track: "#30363d" },
+  light: { bg: "#ffffff", border: "#000000", shadow: "#000000", ink: "#000000", num: "#000000", label: "#000000", date: "#57606a", accent: "#1a7f37", track: "#d0d0d0" },
 };
 const buildStreak = (C) => `<svg xmlns="http://www.w3.org/2000/svg" width="${W + SHX}" height="${H + SHY}" viewBox="0 0 ${W + SHX} ${H + SHY}" font-family="${MONO}">
   <rect x="${1.5 + SHX}" y="${1.5 + SHY}" width="843" height="162" fill="${C.shadow}"/>
@@ -189,7 +189,7 @@ const cw = (s, fs) => s.length * fs * 0.6; // 모노 글자폭 근사
 
 const buildTitle = (text, C) => `<svg xmlns="http://www.w3.org/2000/svg" width="854" height="46" viewBox="0 0 854 46" font-family="${MONO}">
   <text x="3" y="29" font-size="20" font-weight="700" letter-spacing="1" fill="${C.ink}">${esc(text)}</text>
-  <rect x="3" y="37" width="840" height="4" fill="${C.ink}"/>
+  <rect x="3" y="37" width="840" height="4" fill="${C.accent}"/>
 </svg>`;
 
 const techStack = [
@@ -201,7 +201,7 @@ const techStack = [
   { cat: "Infra & Delivery",  items: ["Vercel", "Supabase", "Git Worktree", "Vite"] },
 ];
 const buildTechStack = (C) => {
-  const catW = 170, padTop = 14, rowH = 36, chipFS = 12.5, chipH = 22, chipPadX = 9, chipGap = 7;
+  const catW = 170, padTop = 16, rowH = 44, chipFS = 12.5, chipH = 22, chipPadX = 9, chipGap = 7;
   const IH = padTop * 2 + techStack.length * rowH; // 244
   const chipsX = catW + 16;
   const body = techStack.map((r, i) => {
@@ -231,7 +231,7 @@ const products = [
   { date: "2025", name: "BriefAuction", desc: "Nationwide court real-estate auction data — search, monthly stats & guides" },
 ];
 const buildProducts = (C) => {
-  const dateX = 40, projX = 96, descX = 266, d1 = 80, d2 = 250, padTop = 14, rowH = 36;
+  const dateX = 40, projX = 96, descX = 266, d1 = 80, d2 = 250, padTop = 16, rowH = 44;
   const IH = padTop * 2 + (products.length + 1) * rowH; // header + rows = 172
   const rowY = (i) => padTop + rowH / 2 + i * rowH + 4;
   let out = `

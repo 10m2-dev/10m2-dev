@@ -11,16 +11,16 @@
   <text x="70.5" y="100" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="#ffffff">CONTRIBUTIONS</text>
   <text x="70.5" y="120" text-anchor="middle" font-size="9" fill="#8b949e">2026.01.01 – Now</text>
 
-  <rect x="187.5" y="40" width="48" height="48" fill="none" stroke="#ffffff" stroke-width="3"/>
-  <text x="211.5" y="72" text-anchor="middle" font-size="22" font-weight="700" fill="#ffffff">124</text>
-  <text x="211.5" y="108" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="#ffffff">CURRENT STREAK</text>
+  <rect x="187.5" y="40" width="48" height="48" fill="none" stroke="#39d353" stroke-width="3"/>
+  <text x="211.5" y="72" text-anchor="middle" font-size="22" font-weight="700" fill="#39d353">124</text>
+  <text x="211.5" y="108" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="#39d353">CURRENT STREAK</text>
   <text x="211.5" y="127" text-anchor="middle" font-size="9" fill="#8b949e">04.20 – 08.21</text>
 
   <text x="352.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#ffffff">124</text>
   <text x="352.5" y="100" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="#ffffff">LONGEST STREAK</text>
   <text x="352.5" y="120" text-anchor="middle" font-size="9" fill="#8b949e">04.20 – 08.21</text>
 
-  <text x="493.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#ffffff">43</text>
+  <text x="493.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#39d353">43</text>
   <text x="493.5" y="100" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="#ffffff">BEST DAY</text>
 
   <text x="634.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#ffffff">128</text>
