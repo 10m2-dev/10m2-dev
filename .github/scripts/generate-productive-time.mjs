@@ -225,6 +225,34 @@ const buildTechStack = (C) => {
   <line x1="${catW}" y1="8" x2="${catW}" y2="${IH - 8}" stroke="${C.border}" stroke-width="2"/>${body}
 </svg>`;
 };
+const products = [
+  { date: "2026", name: "Vibe101",      desc: 'Learn-by-building "vibe coding" platform (KO/EN)' },
+  { date: "2026", name: "Ondol",        desc: "Rent/Jeonse verification & scam-risk check for foreigners in Korea" },
+  { date: "2025", name: "BriefAuction", desc: "Nationwide court real-estate auction data — search, monthly stats & guides" },
+];
+const buildProducts = (C) => {
+  const dateX = 40, projX = 96, descX = 266, d1 = 80, d2 = 250, padTop = 14, rowH = 36;
+  const IH = padTop * 2 + (products.length + 1) * rowH; // header + rows = 172
+  const rowY = (i) => padTop + rowH / 2 + i * rowH + 4;
+  let out = `
+  <text x="${dateX}" y="${rowY(0)}" text-anchor="middle" font-size="12" font-weight="700" letter-spacing="0.5" fill="${C.num}">DATE</text>
+  <text x="${projX}" y="${rowY(0)}" font-size="12" font-weight="700" letter-spacing="0.5" fill="${C.num}">PROJECT</text>
+  <text x="${descX}" y="${rowY(0)}" font-size="12" font-weight="700" letter-spacing="0.5" fill="${C.num}">DESCRIPTION</text>`;
+  products.forEach((p, idx) => {
+    const i = idx + 1;
+    out += `
+  <line x1="8" y1="${padTop + i * rowH}" x2="838" y2="${padTop + i * rowH}" stroke="${C.border}" stroke-width="1.5"/>
+  <text x="${dateX}" y="${rowY(i)}" text-anchor="middle" font-size="13" fill="${C.num}">${esc(p.date)}</text>
+  <text x="${projX}" y="${rowY(i)}" font-size="13" font-weight="700" fill="${C.num}">${esc(p.name)}</text>
+  <text x="${descX}" y="${rowY(i)}" font-size="12" fill="${C.num}">${esc(p.desc)}</text>`;
+  });
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W + SHX}" height="${IH + SHY}" viewBox="0 0 ${W + SHX} ${IH + SHY}" font-family="${MONO}">
+  <rect x="${1.5 + SHX}" y="${1.5 + SHY}" width="843" height="${IH - 3}" fill="${C.shadow}"/>
+  <rect x="1.5" y="1.5" width="843" height="${IH - 3}" fill="${C.bg}" stroke="${C.border}" stroke-width="3"/>
+  <line x1="${d1}" y1="8" x2="${d1}" y2="${IH - 8}" stroke="${C.border}" stroke-width="2"/>
+  <line x1="${d2}" y1="8" x2="${d2}" y2="${IH - 8}" stroke="${C.border}" stroke-width="2"/>${out}
+</svg>`;
+};
 const TITLES = [
   ["title-techstack", "TECH STACK"],
   ["title-products", "PRODUCTS"],
@@ -245,6 +273,8 @@ writeFileSync("output/productive-dark.svg", buildProductive(themes.dark));
 writeFileSync("output/productive-light.svg", buildProductive(themes.light));
 writeFileSync("output/techstack-dark.svg", buildTechStack(themes.dark));
 writeFileSync("output/techstack-light.svg", buildTechStack(themes.light));
+writeFileSync("output/products-dark.svg", buildProducts(themes.dark));
+writeFileSync("output/products-light.svg", buildProducts(themes.light));
 for (const [name, text] of TITLES) {
   writeFileSync(`output/${name}-dark.svg`, buildTitle(text, themes.dark));
   writeFileSync(`output/${name}-light.svg`, buildTitle(text, themes.light));

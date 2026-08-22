@@ -29,32 +29,13 @@
   <img src="./output/title-products-dark.svg" alt="Products" />
 </picture>
 
-<table width="100%">
-  <tr>
-    <th align="center">DATE</th>
-    <th align="center" width="210">PROJECT</th>
-    <th align="center">DESCRIPTION</th>
-    <th align="center">LINK</th>
-  </tr>
-  <tr valign="middle">
-    <td align="center">2026</td>
-    <td><b>Vibe101</b></td>
-    <td>Learn-by-building "vibe coding" platform (KO/EN)</td>
-    <td align="center"><a href="https://vibe101.dev">🔗</a></td>
-  </tr>
-  <tr valign="middle">
-    <td align="center">2026</td>
-    <td><b>Ondol</b></td>
-    <td>Rent/Jeonse verification &amp; scam-risk check for foreigners in Korea</td>
-    <td align="center"><a href="https://ondolkorea.com">🔗</a></td>
-  </tr>
-  <tr valign="middle">
-    <td align="center">2025</td>
-    <td><b>BriefAuction</b></td>
-    <td>Nationwide court real-estate auction data — search, monthly stats &amp; guides</td>
-    <td align="center"><a href="https://briefauction.com">🔗</a></td>
-  </tr>
-</table>
+<picture>
+  <source media="(prefers-color-scheme: dark)"  srcset="./output/products-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./output/products-light.svg">
+  <img src="./output/products-dark.svg" alt="products" />
+</picture>
+
+<sub>🔗&nbsp; <a href="https://vibe101.dev">Vibe101</a> &nbsp;·&nbsp; <a href="https://ondolkorea.com">Ondol</a> &nbsp;·&nbsp; <a href="https://briefauction.com">BriefAuction</a></sub>
 
 <br/>
 
