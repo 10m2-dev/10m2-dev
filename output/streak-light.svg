@@ -12,9 +12,9 @@
   <text x="70.5" y="120" text-anchor="middle" font-size="9" fill="#57606a">2026.01.01 – Now</text>
 
   <rect x="187.5" y="40" width="48" height="48" fill="none" stroke="#1a7f37" stroke-width="3"/>
-  <text x="211.5" y="72" text-anchor="middle" font-size="22" font-weight="700" fill="#1a7f37">125</text>
+  <text x="211.5" y="72" text-anchor="middle" font-size="22" font-weight="700" fill="#1a7f37">0</text>
   <text x="211.5" y="108" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="#1a7f37">CURRENT STREAK</text>
-  <text x="211.5" y="127" text-anchor="middle" font-size="9" fill="#57606a">04.20 – 08.22</text>
+  <text x="211.5" y="127" text-anchor="middle" font-size="9" fill="#57606a">—</text>
 
   <text x="352.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#000000">125</text>
   <text x="352.5" y="100" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="#000000">LONGEST STREAK</text>
@@ -26,6 +26,6 @@
   <text x="634.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#000000">129</text>
   <text x="634.5" y="100" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="#000000">ACTIVE DAYS</text>
 
-  <text x="775.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#000000">2.5</text>
+  <text x="775.5" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="#000000">2.4</text>
   <text x="775.5" y="100" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="#000000">AVG / DAY</text>
 </svg>
