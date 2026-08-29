@@ -11,22 +11,22 @@
   <rect x="30" y="78" width="12" height="12" fill="#c9d1d9"/>
   <text x="54" y="89" font-size="14" font-weight="700" letter-spacing="0.5" fill="#c9d1d9">DAYTIME</text>
   <text x="170" y="89" font-size="12" fill="#6e7681">12-18</text>
-  <text x="380" y="89" text-anchor="end" font-size="12" fill="#c9d1d9">254 COMMITS</text>
+  <text x="380" y="89" text-anchor="end" font-size="12" fill="#c9d1d9">255 COMMITS</text>
   <rect x="402" y="77" width="300" height="14" fill="#30363d" stroke="#c9d1d9" stroke-width="1.5"/>
-  <rect x="402" y="77" width="130.0" height="14" fill="#39d353"/>
-  <text x="806" y="89" text-anchor="end" font-size="14" font-weight="700" fill="#39d353">43.3%</text>
+  <rect x="402" y="77" width="130.3" height="14" fill="#39d353"/>
+  <text x="806" y="89" text-anchor="end" font-size="14" font-weight="700" fill="#39d353">43.4%</text>
   <rect x="30" y="116" width="12" height="12" fill="#c9d1d9"/>
   <text x="54" y="127" font-size="14" font-weight="700" letter-spacing="0.5" fill="#c9d1d9">EVENING</text>
   <text x="170" y="127" font-size="12" fill="#6e7681">18-24</text>
   <text x="380" y="127" text-anchor="end" font-size="12" fill="#c9d1d9">112 COMMITS</text>
   <rect x="402" y="115" width="300" height="14" fill="#30363d" stroke="#c9d1d9" stroke-width="1.5"/>
-  <rect x="402" y="115" width="57.3" height="14" fill="#39d353"/>
+  <rect x="402" y="115" width="57.2" height="14" fill="#39d353"/>
   <text x="806" y="127" text-anchor="end" font-size="14" font-weight="700" fill="#39d353">19.1%</text>
   <rect x="30" y="154" width="12" height="12" fill="#c9d1d9"/>
   <text x="54" y="165" font-size="14" font-weight="700" letter-spacing="0.5" fill="#c9d1d9">NIGHT</text>
   <text x="170" y="165" font-size="12" fill="#6e7681">00-06</text>
   <text x="380" y="165" text-anchor="end" font-size="12" fill="#c9d1d9">133 COMMITS</text>
   <rect x="402" y="153" width="300" height="14" fill="#30363d" stroke="#c9d1d9" stroke-width="1.5"/>
-  <rect x="402" y="153" width="68.1" height="14" fill="#39d353"/>
+  <rect x="402" y="153" width="68.0" height="14" fill="#39d353"/>
   <text x="806" y="165" text-anchor="end" font-size="14" font-weight="700" fill="#39d353">22.7%</text>
 </svg>
