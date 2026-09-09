@@ -9,13 +9,13 @@
   <text x="318" y="91" font-size="11" font-weight="700" letter-spacing="0.5" fill="#000000">DAYTIME</text>
   <text x="405" y="91" text-anchor="end" font-size="10" fill="#57606a">12-18</text>
   <rect x="458" y="82" width="250" height="10" fill="#d0d0d0"/>
-  <rect x="458" y="82" width="94.0" height="10" fill="#1a7f37"/>
-  <text x="790" y="91" text-anchor="end" font-size="11" font-weight="700" fill="#000000">37.6%</text>
+  <rect x="458" y="82" width="94.2" height="10" fill="#1a7f37"/>
+  <text x="790" y="91" text-anchor="end" font-size="11" font-weight="700" fill="#000000">37.7%</text>
   <text x="318" y="120" font-size="11" font-weight="700" letter-spacing="0.5" fill="#000000">EVENING</text>
   <text x="405" y="120" text-anchor="end" font-size="10" fill="#57606a">18-24</text>
   <rect x="458" y="111" width="250" height="10" fill="#d0d0d0"/>
-  <rect x="458" y="111" width="74.4" height="10" fill="#1a7f37"/>
-  <text x="790" y="120" text-anchor="end" font-size="11" font-weight="700" fill="#000000">29.8%</text>
+  <rect x="458" y="111" width="74.3" height="10" fill="#1a7f37"/>
+  <text x="790" y="120" text-anchor="end" font-size="11" font-weight="700" fill="#000000">29.7%</text>
   <text x="318" y="149" font-size="11" font-weight="700" letter-spacing="0.5" fill="#000000">NIGHT</text>
   <text x="405" y="149" text-anchor="end" font-size="10" fill="#57606a">00-06</text>
   <rect x="458" y="140" width="250" height="10" fill="#d0d0d0"/>
@@ -25,7 +25,7 @@
   <text x="28" y="34" font-size="11" font-weight="700" letter-spacing="1" fill="#000000">PEAK WINDOW</text>
   <text x="28" y="75" font-size="28" font-weight="700" fill="#1a7f37">DAYTIME</text>
   <text x="28" y="99" font-size="12" fill="#57606a">12-18</text>
-  <text x="28" y="139" font-size="34" font-weight="700" fill="#000000">37.6%</text>
-  <text x="28" y="160" font-size="10" font-weight="700" letter-spacing="0.7" fill="#000000">264 COMMITS</text>
+  <text x="28" y="139" font-size="34" font-weight="700" fill="#000000">37.7%</text>
+  <text x="28" y="160" font-size="10" font-weight="700" letter-spacing="0.7" fill="#000000">265 COMMITS</text>
   <text x="318" y="34" font-size="11" font-weight="700" letter-spacing="1" fill="#000000">COMMIT DISTRIBUTION</text>
 </svg>
