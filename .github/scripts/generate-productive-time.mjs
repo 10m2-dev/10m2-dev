@@ -125,7 +125,7 @@ const longestRange = longest === 0 ? "—"
   : longest === 1 ? fFull(days[lStart].date)
   : `${fMD(days[lStart].date)} – ${fMD(days[lEnd].date)}`;
 
-const W = 846, H = 184;
+const W = 846, H = 165, cx = [70.5, 211.5, 352.5, 493.5, 634.5, 775.5];
 const MONO = "ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace";
 const SHX = 8, SHY = 8; // 브루탈리즘 하드 오프셋 그림자
 const themes = {
@@ -133,25 +133,29 @@ const themes = {
   light: { bg: "#ffffff", border: "#000000", shadow: "#196c2e", ink: "#000000", num: "#000000", label: "#000000", date: "#57606a", accent: "#1a7f37", track: "#d0d0d0", chipBg: "#000000", chipFg: "#ffffff", chipBorder: "#000000", bannerFg: "#000000" },
 };
 const buildStreak = (C) => `<svg xmlns="http://www.w3.org/2000/svg" width="${W + SHX}" height="${H + SHY}" viewBox="0 0 ${W + SHX} ${H + SHY}" font-family="${MONO}">
-  <rect x="${1.5 + SHX}" y="${1.5 + SHY}" width="843" height="${H - 3}" fill="${C.shadow}"/>
-  <rect x="1.5" y="1.5" width="843" height="${H - 3}" fill="${C.bg}" stroke="${C.border}" stroke-width="3"/>
-  <line x1="290" y1="16" x2="290" y2="${H - 16}" stroke="${C.border}" stroke-width="2"/>
-  <line x1="567" y1="40" x2="567" y2="${H - 18}" stroke="${C.border}" stroke-width="1.5"/>
-  <line x1="308" y1="100" x2="826" y2="100" stroke="${C.border}" stroke-width="1.5"/>
-  <text x="28" y="32" font-size="11" font-weight="700" letter-spacing="1" fill="${C.label}">STREAK STATUS</text>
-  <text x="28" y="92" font-size="52" font-weight="700" fill="${C.accent}">${current}</text>
-  <text x="${current >= 10 ? 106 : 78}" y="92" font-size="14" font-weight="700" fill="${C.accent}">DAYS</text>
-  <text x="28" y="119" font-size="12" font-weight="700" letter-spacing="0.6" fill="${C.num}">CURRENT STREAK</text>
-  <text x="28" y="142" font-size="10" fill="${C.date}">${currentRange}</text>
-  <text x="308" y="26" font-size="11" font-weight="700" letter-spacing="1" fill="${C.label}">ALL-TIME SNAPSHOT</text>
-  <text x="328" y="69" font-size="28" font-weight="700" fill="${C.num}">${totalContrib}</text>
-  <text x="328" y="88" font-size="10" font-weight="700" letter-spacing="0.6" fill="${C.label}">CONTRIBUTIONS</text>
-  <text x="588" y="69" font-size="28" font-weight="700" fill="${C.num}">${longest}</text>
-  <text x="588" y="88" font-size="10" font-weight="700" letter-spacing="0.6" fill="${C.label}">LONGEST STREAK</text>
-  <text x="328" y="132" font-size="28" font-weight="700" fill="${C.num}">${stats.activeDays}</text>
-  <text x="328" y="151" font-size="10" font-weight="700" letter-spacing="0.6" fill="${C.label}">ACTIVE DAYS</text>
-  <text x="588" y="132" font-size="28" font-weight="700" fill="${C.accent}">${stats.bestDay}</text>
-  <text x="588" y="151" font-size="10" font-weight="700" letter-spacing="0.6" fill="${C.label}">BEST DAY</text>
+  <rect x="${1.5 + SHX}" y="${1.5 + SHY}" width="843" height="162" fill="${C.shadow}"/>
+  <rect x="1.5" y="1.5" width="843" height="162" fill="${C.bg}" stroke="${C.border}" stroke-width="3"/>
+  <line x1="141" y1="22" x2="141" y2="143" stroke="${C.border}" stroke-width="2"/>
+  <line x1="282" y1="22" x2="282" y2="143" stroke="${C.border}" stroke-width="2"/>
+  <line x1="423" y1="22" x2="423" y2="143" stroke="${C.border}" stroke-width="2"/>
+  <line x1="564" y1="22" x2="564" y2="143" stroke="${C.border}" stroke-width="2"/>
+  <line x1="705" y1="22" x2="705" y2="143" stroke="${C.border}" stroke-width="2"/>
+  <text x="${cx[0]}" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="${C.num}">${totalContrib}</text>
+  <text x="${cx[0]}" y="100" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="${C.label}">CONTRIBUTIONS</text>
+  <text x="${cx[0]}" y="120" text-anchor="middle" font-size="9" fill="${C.date}">${totalRange}</text>
+  <rect x="${cx[1] - 24}" y="40" width="48" height="48" fill="none" stroke="${C.accent}" stroke-width="3"/>
+  <text x="${cx[1]}" y="72" text-anchor="middle" font-size="22" font-weight="700" fill="${C.accent}">${current}</text>
+  <text x="${cx[1]}" y="108" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="${C.accent}">CURRENT STREAK</text>
+  <text x="${cx[1]}" y="127" text-anchor="middle" font-size="9" fill="${C.date}">${currentRange}</text>
+  <text x="${cx[2]}" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="${C.num}">${longest}</text>
+  <text x="${cx[2]}" y="100" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="${C.label}">LONGEST STREAK</text>
+  <text x="${cx[2]}" y="120" text-anchor="middle" font-size="9" fill="${C.date}">${longestRange}</text>
+  <text x="${cx[3]}" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="${C.accent}">${stats.bestDay}</text>
+  <text x="${cx[3]}" y="100" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="${C.label}">BEST DAY</text>
+  <text x="${cx[4]}" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="${C.num}">${stats.activeDays}</text>
+  <text x="${cx[4]}" y="100" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="${C.label}">ACTIVE DAYS</text>
+  <text x="${cx[5]}" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="${C.num}">${stats.avgPerDay}</text>
+  <text x="${cx[5]}" y="100" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="${C.label}">AVG / DAY</text>
 </svg>`;
 
 // 시간대별 활동 = 브루탈리즘 박스 카드(각진·두꺼운 테두리·하드 그림자·모노 대문자). 바 = 트랙 rect(테두리) + 채움 rect.

@@ -69,9 +69,9 @@
 <!-- STREAK:START -->
 
 <picture>
-  <source media="(prefers-color-scheme: dark)"  srcset="https://raw.githubusercontent.com/10m2-dev/10m2-dev/12e6e10/output/streak-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/10m2-dev/10m2-dev/12e6e10/output/streak-light.svg">
-  <img src="https://raw.githubusercontent.com/10m2-dev/10m2-dev/12e6e10/output/streak-dark.svg" alt="commit streak" />
+  <source media="(prefers-color-scheme: dark)"  srcset="https://raw.githubusercontent.com/10m2-dev/10m2-dev/2307e5e/output/streak-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/10m2-dev/10m2-dev/2307e5e/output/streak-light.svg">
+  <img src="https://raw.githubusercontent.com/10m2-dev/10m2-dev/2307e5e/output/streak-dark.svg" alt="commit streak" />
 </picture>
 
 <!-- STREAK:END -->
