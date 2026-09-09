@@ -11,7 +11,7 @@
     <animate attributeName="width" begin="clk.begin+3.83s" dur="2.79s" values="0;446.4" fill="freeze"/>
     <animate attributeName="width" begin="clk.begin+8.02s" dur="1.4s" values="446.4;0" fill="freeze"/>
   </rect></clipPath>
-  <text x="0" y="34" font-size="24" font-weight="700" fill="#ffffff" clip-path="url(#bc1)">FULL-STACK DEVELOPER — 14 YEARS</text>
+  <text x="0" y="34" font-size="24" font-weight="700" fill="#ffffff" clip-path="url(#bc1)">FULL-STACK DEVELOPER — 15 YEARS</text>
   <clipPath id="bc2"><rect x="0" y="0" width="0" height="52">
     <set attributeName="width" to="0" begin="clk.begin"/>
     <animate attributeName="width" begin="clk.begin+9.42s" dur="2.34s" values="0;374.4" fill="freeze"/>

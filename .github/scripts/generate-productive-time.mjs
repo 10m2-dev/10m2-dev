@@ -195,7 +195,7 @@ const buildTitle = (text, C) => `<svg xmlns="http://www.w3.org/2000/svg" width="
 // 자체 제작 타이핑 배너(테마별 흑백). readme-typing-svg는 단색이라 라이트/다크 전환 불가 → SMIL clip 애니메이션으로 직접 구현.
 const buildBanner = (C) => {
   const W = 620, H = 52, fs = 24, y = 34, ch = fs * 0.6;
-  const lines = ["HI THERE. I'M 10m2", "FULL-STACK DEVELOPER — 14 YEARS", "ALWAYS LEARNING NEW THINGS"];
+  const lines = ["HI THERE. I'M 10m2", "FULL-STACK DEVELOPER — 15 YEARS", "ALWAYS LEARNING NEW THINGS"];
   const typeS = 0.09, holdS = 1.4, eraseS = 0.045;
   let t = 0;
   const segs = lines.map((s) => {
