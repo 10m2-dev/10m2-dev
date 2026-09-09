@@ -50,9 +50,9 @@
 <!-- PRODUCTIVE-TIME:START -->
 
 <picture>
-  <source media="(prefers-color-scheme: dark)"  srcset="./output/productive-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="./output/productive-light.svg">
-  <img src="./output/productive-dark.svg" alt="when am I most active" />
+  <source media="(prefers-color-scheme: dark)"  srcset="https://raw.githubusercontent.com/10m2-dev/10m2-dev/12e6e10/output/productive-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/10m2-dev/10m2-dev/12e6e10/output/productive-light.svg">
+  <img src="https://raw.githubusercontent.com/10m2-dev/10m2-dev/12e6e10/output/productive-dark.svg" alt="when am I most active" />
 </picture>
 
 <!-- PRODUCTIVE-TIME:END -->
@@ -69,9 +69,9 @@
 <!-- STREAK:START -->
 
 <picture>
-  <source media="(prefers-color-scheme: dark)"  srcset="./output/streak-dark.svg?v=2026090901">
-  <source media="(prefers-color-scheme: light)" srcset="./output/streak-light.svg?v=2026090901">
-  <img src="./output/streak-dark.svg?v=2026090901" alt="commit streak" />
+  <source media="(prefers-color-scheme: dark)"  srcset="https://raw.githubusercontent.com/10m2-dev/10m2-dev/12e6e10/output/streak-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/10m2-dev/10m2-dev/12e6e10/output/streak-light.svg">
+  <img src="https://raw.githubusercontent.com/10m2-dev/10m2-dev/12e6e10/output/streak-dark.svg" alt="commit streak" />
 </picture>
 
 <!-- STREAK:END -->
