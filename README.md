@@ -31,9 +31,9 @@
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)"  srcset="./output/products-dark.svg?v=20260909-products">
-  <source media="(prefers-color-scheme: light)" srcset="./output/products-light.svg?v=20260909-products">
-  <img src="./output/products-dark.svg?v=20260909-products" alt="products" />
+  <source media="(prefers-color-scheme: dark)"  srcset="./output/products-dark.svg?v=20260909-products-2">
+  <source media="(prefers-color-scheme: light)" srcset="./output/products-light.svg?v=20260909-products-2">
+  <img src="./output/products-dark.svg?v=20260909-products-2" alt="products" />
 </picture>
 
 <sub>🔗&nbsp; <a href="https://briefauction.com">BriefAuction</a> &nbsp;·&nbsp; <a href="https://ondolkorea.com">Ondol</a> &nbsp;·&nbsp; <a href="https://vibe101.dev">Vibe101</a> &nbsp;·&nbsp; <a href="https://silvertongue.vercel.app/">Silvertongue</a> &nbsp;·&nbsp; <a href="https://ieum-habit.vercel.app/">IEUM</a></sub>
