@@ -12,6 +12,8 @@ const TZ = process.env.TIMEZONE || "Asia/Seoul";
 const README = "README.md";
 const PT_START = "<!-- PRODUCTIVE-TIME:START -->";
 const PT_END = "<!-- PRODUCTIVE-TIME:END -->";
+const STREAK_START = "<!-- STREAK:START -->";
+const STREAK_END = "<!-- STREAK:END -->";
 if (!TOKEN) {
   console.error("GH_TOKEN is required");
   process.exit(1);
@@ -59,6 +61,7 @@ do {
 } while (after && ++pages < 4);
 
 const total = Object.values(buckets).reduce((a, b) => a + b, 0) || 1;
+const assetVersion = new Date().toISOString().replace(/\D/g, "").slice(0, 12);
 const ptRows = [
   { emoji: "🌅", label: "Morning", time: "06-12", n: buckets.morning },
   { emoji: "🌞", label: "Daytime", time: "12-18", n: buckets.daytime },
@@ -66,7 +69,8 @@ const ptRows = [
   { emoji: "🌙", label: "Night",   time: "00-06", n: buckets.night },
 ].map((r) => ({ ...r, percent: (r.n / total) * 100 }));
 // 시간대별 활동 = SVG 박스 카드(Streak과 동일 톤·14px). README는 <picture>로 라이트/다크 참조.
-const ptBlock = `${PT_START}\n\n<picture>\n  <source media="(prefers-color-scheme: dark)"  srcset="./output/productive-dark.svg">\n  <source media="(prefers-color-scheme: light)" srcset="./output/productive-light.svg">\n  <img src="./output/productive-dark.svg" alt="when am I most active" />\n</picture>\n\n${PT_END}`;
+const ptBlock = `${PT_START}\n\n<picture>\n  <source media="(prefers-color-scheme: dark)"  srcset="./output/productive-dark.svg?v=${assetVersion}">\n  <source media="(prefers-color-scheme: light)" srcset="./output/productive-light.svg?v=${assetVersion}">\n  <img src="./output/productive-dark.svg?v=${assetVersion}" alt="when am I most active" />\n</picture>\n\n${PT_END}`;
+const streakBlock = `${STREAK_START}\n\n<picture>\n  <source media="(prefers-color-scheme: dark)"  srcset="./output/streak-dark.svg?v=${assetVersion}">\n  <source media="(prefers-color-scheme: light)" srcset="./output/streak-light.svg?v=${assetVersion}">\n  <img src="./output/streak-dark.svg?v=${assetVersion}" alt="commit streak" />\n</picture>\n\n${STREAK_END}`;
 
 // ============ (2) Streak (디자인 SVG) ============
 // 가입연도부터 연도별로 기여 캘린더를 모아 누적(all-time)
@@ -121,7 +125,7 @@ const longestRange = longest === 0 ? "—"
   : longest === 1 ? fFull(days[lStart].date)
   : `${fMD(days[lStart].date)} – ${fMD(days[lEnd].date)}`;
 
-const W = 846, H = 165, cx = [70.5, 211.5, 352.5, 493.5, 634.5, 775.5];
+const W = 846, H = 184;
 const MONO = "ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace";
 const SHX = 8, SHY = 8; // 브루탈리즘 하드 오프셋 그림자
 const themes = {
@@ -129,56 +133,51 @@ const themes = {
   light: { bg: "#ffffff", border: "#000000", shadow: "#196c2e", ink: "#000000", num: "#000000", label: "#000000", date: "#57606a", accent: "#1a7f37", track: "#d0d0d0", chipBg: "#000000", chipFg: "#ffffff", chipBorder: "#000000", bannerFg: "#000000" },
 };
 const buildStreak = (C) => `<svg xmlns="http://www.w3.org/2000/svg" width="${W + SHX}" height="${H + SHY}" viewBox="0 0 ${W + SHX} ${H + SHY}" font-family="${MONO}">
-  <rect x="${1.5 + SHX}" y="${1.5 + SHY}" width="843" height="162" fill="${C.shadow}"/>
-  <rect x="1.5" y="1.5" width="843" height="162" fill="${C.bg}" stroke="${C.border}" stroke-width="3"/>
-  <line x1="141" y1="22" x2="141" y2="143" stroke="${C.border}" stroke-width="2"/>
-  <line x1="282" y1="22" x2="282" y2="143" stroke="${C.border}" stroke-width="2"/>
-  <line x1="423" y1="22" x2="423" y2="143" stroke="${C.border}" stroke-width="2"/>
-  <line x1="564" y1="22" x2="564" y2="143" stroke="${C.border}" stroke-width="2"/>
-  <line x1="705" y1="22" x2="705" y2="143" stroke="${C.border}" stroke-width="2"/>
-
-  <text x="${cx[0]}" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="${C.num}">${totalContrib}</text>
-  <text x="${cx[0]}" y="100" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="${C.label}">CONTRIBUTIONS</text>
-  <text x="${cx[0]}" y="120" text-anchor="middle" font-size="9" fill="${C.date}">${totalRange}</text>
-
-  <rect x="${cx[1] - 24}" y="40" width="48" height="48" fill="none" stroke="${C.accent}" stroke-width="3"/>
-  <text x="${cx[1]}" y="72" text-anchor="middle" font-size="22" font-weight="700" fill="${C.accent}">${current}</text>
-  <text x="${cx[1]}" y="108" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="${C.accent}">CURRENT STREAK</text>
-  <text x="${cx[1]}" y="127" text-anchor="middle" font-size="9" fill="${C.date}">${currentRange}</text>
-
-  <text x="${cx[2]}" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="${C.num}">${longest}</text>
-  <text x="${cx[2]}" y="100" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="${C.label}">LONGEST STREAK</text>
-  <text x="${cx[2]}" y="120" text-anchor="middle" font-size="9" fill="${C.date}">${longestRange}</text>
-
-  <text x="${cx[3]}" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="${C.accent}">${stats.bestDay}</text>
-  <text x="${cx[3]}" y="100" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="${C.label}">BEST DAY</text>
-
-  <text x="${cx[4]}" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="${C.num}">${stats.activeDays}</text>
-  <text x="${cx[4]}" y="100" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="${C.label}">ACTIVE DAYS</text>
-
-  <text x="${cx[5]}" y="70" text-anchor="middle" font-size="27" font-weight="700" fill="${C.num}">${stats.avgPerDay}</text>
-  <text x="${cx[5]}" y="100" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.5" fill="${C.label}">AVG / DAY</text>
+  <rect x="${1.5 + SHX}" y="${1.5 + SHY}" width="843" height="${H - 3}" fill="${C.shadow}"/>
+  <rect x="1.5" y="1.5" width="843" height="${H - 3}" fill="${C.bg}" stroke="${C.border}" stroke-width="3"/>
+  <line x1="290" y1="16" x2="290" y2="${H - 16}" stroke="${C.border}" stroke-width="2"/>
+  <line x1="567" y1="40" x2="567" y2="${H - 18}" stroke="${C.border}" stroke-width="1.5"/>
+  <line x1="308" y1="100" x2="826" y2="100" stroke="${C.border}" stroke-width="1.5"/>
+  <text x="28" y="32" font-size="11" font-weight="700" letter-spacing="1" fill="${C.label}">STREAK STATUS</text>
+  <text x="28" y="92" font-size="52" font-weight="700" fill="${C.accent}">${current}</text>
+  <text x="${current >= 10 ? 106 : 78}" y="92" font-size="14" font-weight="700" fill="${C.accent}">DAYS</text>
+  <text x="28" y="119" font-size="12" font-weight="700" letter-spacing="0.6" fill="${C.num}">CURRENT STREAK</text>
+  <text x="28" y="142" font-size="10" fill="${C.date}">${currentRange}</text>
+  <text x="308" y="26" font-size="11" font-weight="700" letter-spacing="1" fill="${C.label}">ALL-TIME SNAPSHOT</text>
+  <text x="328" y="69" font-size="28" font-weight="700" fill="${C.num}">${totalContrib}</text>
+  <text x="328" y="88" font-size="10" font-weight="700" letter-spacing="0.6" fill="${C.label}">CONTRIBUTIONS</text>
+  <text x="588" y="69" font-size="28" font-weight="700" fill="${C.num}">${longest}</text>
+  <text x="588" y="88" font-size="10" font-weight="700" letter-spacing="0.6" fill="${C.label}">LONGEST STREAK</text>
+  <text x="328" y="132" font-size="28" font-weight="700" fill="${C.num}">${stats.activeDays}</text>
+  <text x="328" y="151" font-size="10" font-weight="700" letter-spacing="0.6" fill="${C.label}">ACTIVE DAYS</text>
+  <text x="588" y="132" font-size="28" font-weight="700" fill="${C.accent}">${stats.bestDay}</text>
+  <text x="588" y="151" font-size="10" font-weight="700" letter-spacing="0.6" fill="${C.label}">BEST DAY</text>
 </svg>`;
 
 // 시간대별 활동 = 브루탈리즘 박스 카드(각진·두꺼운 테두리·하드 그림자·모노 대문자). 바 = 트랙 rect(테두리) + 채움 rect.
 const buildProductive = (C) => {
-  const barX = 402, barW = 300, barH = 14, row0 = 46, rowH = 38;
-  const PH = row0 * 2 + (ptRows.length - 1) * rowH; // 206
+  const PH = 184, panelW = 288, barX = 458, barW = 250, barH = 10, row0 = 58, rowH = 29;
+  const peak = ptRows.reduce((best, row) => row.n > best.n ? row : best);
   const rows = ptRows.map((r, i) => {
     const cy = row0 + i * rowH;
     const fillW = Math.max(4, (barW * r.percent) / 100).toFixed(1);
     return `
-  <rect x="30" y="${cy - 6}" width="12" height="12" fill="${C.ink}"/>
-  <text x="54" y="${cy + 5}" font-size="14" font-weight="700" letter-spacing="0.5" fill="${C.num}">${r.label.toUpperCase()}</text>
-  <text x="170" y="${cy + 5}" font-size="12" fill="${C.date}">${r.time}</text>
-  <text x="380" y="${cy + 5}" text-anchor="end" font-size="12" fill="${C.num}">${r.n} COMMITS</text>
-  <rect x="${barX}" y="${cy - barH / 2}" width="${barW}" height="${barH}" fill="${C.track}" stroke="${C.border}" stroke-width="1.5"/>
+  <text x="318" y="${cy + 4}" font-size="11" font-weight="700" letter-spacing="0.5" fill="${C.num}">${r.label.toUpperCase()}</text>
+  <text x="405" y="${cy + 4}" text-anchor="end" font-size="10" fill="${C.date}">${r.time}</text>
+  <rect x="${barX}" y="${cy - barH / 2}" width="${barW}" height="${barH}" fill="${C.track}"/>
   <rect x="${barX}" y="${cy - barH / 2}" width="${fillW}" height="${barH}" fill="${C.accent}"/>
-  <text x="806" y="${cy + 5}" text-anchor="end" font-size="14" font-weight="700" fill="${C.accent}">${r.percent.toFixed(1)}%</text>`;
+  <text x="790" y="${cy + 4}" text-anchor="end" font-size="11" font-weight="700" fill="${C.num}">${r.percent.toFixed(1)}%</text>`;
   }).join("");
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W + SHX}" height="${PH + SHY}" viewBox="0 0 ${W + SHX} ${PH + SHY}" font-family="${MONO}">
   <rect x="${1.5 + SHX}" y="${1.5 + SHY}" width="843" height="${PH - 3}" fill="${C.shadow}"/>
   <rect x="1.5" y="1.5" width="843" height="${PH - 3}" fill="${C.bg}" stroke="${C.border}" stroke-width="3"/>${rows}
+  <line x1="${panelW}" y1="16" x2="${panelW}" y2="${PH - 16}" stroke="${C.border}" stroke-width="2"/>
+  <text x="28" y="34" font-size="11" font-weight="700" letter-spacing="1" fill="${C.label}">PEAK WINDOW</text>
+  <text x="28" y="75" font-size="28" font-weight="700" fill="${C.accent}">${peak.label.toUpperCase()}</text>
+  <text x="28" y="99" font-size="12" fill="${C.date}">${peak.time}</text>
+  <text x="28" y="139" font-size="34" font-weight="700" fill="${C.num}">${peak.percent.toFixed(1)}%</text>
+  <text x="28" y="160" font-size="10" font-weight="700" letter-spacing="0.7" fill="${C.label}">${peak.n} COMMITS</text>
+  <text x="318" y="34" font-size="11" font-weight="700" letter-spacing="1" fill="${C.label}">COMMIT DISTRIBUTION</text>
 </svg>`;
 };
 
@@ -251,6 +250,9 @@ const buildTechStack = (C) => {
 </svg>`;
 };
 const products = [
+  { date: "2026", name: "IEUM",         desc: "GitHub-style habit tracker that makes consistency visible" },
+  { date: "2026", name: "Silvertongue", desc: "Prompt-injection CTF for testing and hardening AI defenses" },
+  { date: "2026", name: "OCPP-CSMS",    desc: "OCPP 1.6J charging-station management system for EV operators" },
   { date: "2026", name: "Vibe101",      desc: 'Learn-by-building "vibe coding" platform (KO/EN)' },
   { date: "2026", name: "Ondol",        desc: "Rent/Jeonse verification & scam-risk check for foreigners in Korea" },
   { date: "2025", name: "BriefAuction", desc: "Nationwide court real-estate auction data — search, monthly stats & guides" },
@@ -288,8 +290,9 @@ const TITLES = [
 // ============ 출력 ============
 let readme = readFileSync(README, "utf8");
 const re = new RegExp(`${PT_START}[\\s\\S]*?${PT_END}`);
-if (!re.test(readme)) { console.error("PT markers not found"); process.exit(1); }
-readme = readme.replace(re, ptBlock);
+const streakRe = new RegExp(`${STREAK_START}[\\s\\S]*?${STREAK_END}`);
+if (!re.test(readme) || !streakRe.test(readme)) { console.error("Profile card markers not found"); process.exit(1); }
+readme = readme.replace(re, ptBlock).replace(streakRe, streakBlock);
 writeFileSync(README, readme);
 mkdirSync("output", { recursive: true });
 writeFileSync("output/streak-dark.svg", buildStreak(themes.dark));

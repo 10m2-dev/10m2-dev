@@ -66,8 +66,12 @@
   <img src="./output/title-streak-dark.svg" alt="Commit Streak" />
 </picture>
 
+<!-- STREAK:START -->
+
 <picture>
-  <source media="(prefers-color-scheme: dark)"  srcset="./output/streak-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="./output/streak-light.svg">
-  <img src="./output/streak-dark.svg" alt="commit streak" />
+  <source media="(prefers-color-scheme: dark)"  srcset="./output/streak-dark.svg?v=2026090901">
+  <source media="(prefers-color-scheme: light)" srcset="./output/streak-light.svg?v=2026090901">
+  <img src="./output/streak-dark.svg?v=2026090901" alt="commit streak" />
 </picture>
+
+<!-- STREAK:END -->
