@@ -50,9 +50,9 @@
 <!-- PRODUCTIVE-TIME:START -->
 
 <picture>
-  <source media="(prefers-color-scheme: dark)"  srcset="./output/productive-dark.svg?v=202609131548">
-  <source media="(prefers-color-scheme: light)" srcset="./output/productive-light.svg?v=202609131548">
-  <img src="./output/productive-dark.svg?v=202609131548" alt="when am I most active" />
+  <source media="(prefers-color-scheme: dark)"  srcset="./output/productive-dark.svg?v=202609140357">
+  <source media="(prefers-color-scheme: light)" srcset="./output/productive-light.svg?v=202609140357">
+  <img src="./output/productive-dark.svg?v=202609140357" alt="when am I most active" />
 </picture>
 
 <!-- PRODUCTIVE-TIME:END -->
@@ -69,9 +69,9 @@
 <!-- STREAK:START -->
 
 <picture>
-  <source media="(prefers-color-scheme: dark)"  srcset="./output/streak-dark.svg?v=202609131548">
-  <source media="(prefers-color-scheme: light)" srcset="./output/streak-light.svg?v=202609131548">
-  <img src="./output/streak-dark.svg?v=202609131548" alt="commit streak" />
+  <source media="(prefers-color-scheme: dark)"  srcset="./output/streak-dark.svg?v=202609140357">
+  <source media="(prefers-color-scheme: light)" srcset="./output/streak-light.svg?v=202609140357">
+  <img src="./output/streak-dark.svg?v=202609140357" alt="commit streak" />
 </picture>
 
 <!-- STREAK:END -->
